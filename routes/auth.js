@@ -35,10 +35,20 @@ router.post('/signup', async (req, res, next) => {
       return;
   }
   try {
+    const userCheck = await User.findOne({ username: username });
+    const emailCheck = await User.findOne({email: email});
+    if (userCheck) {
+      res.render('auth/signup', { error: "Usename already exists, try with another one" });
+      return;
+    } else if (emailCheck) {
+      res.render('auth/login', { error: "Email is registered. Please log in" });
+      return;
+    } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ username, email, hashedPassword, dateOfBirth, languageSkills });
     res.render('auth/profile', user)
+    }
   } catch (error) {
     next(error)
   }
