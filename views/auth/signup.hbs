@@ -12,6 +12,18 @@
     <label>Password</label>
       <input type="password" name="password" placeholder="********" />
 
+    <label>Date of birth</label>
+      <input type="date" name="dateOfBirth"/>
+
+    <label>Languages</label>
+      <select name="languageSkills" multiple>
+            <option value="Spanish">Spanish</option>
+            <option value="English">English</option>
+            <option value="Catalan">Catalan</option>
+            <option value="French">French</option>
+            <option value="Deutsch">Deutsch</option>
+      </select>
+
       {{#if error}}
       <p style="color: red;">{{error}}</p>
       {{/if}}

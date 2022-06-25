@@ -26,7 +26,7 @@ router.post('/signup', async (req, res, next) => {
   const { email, password, username, dateOfBirth, languageSkills } = req.body;
   // ⚠️ Add validations!
   if (!email || !password || !username || !dateOfBirth || !languageSkills) {
-    res.render('auth/login', { error: 'All fields are mandatory. Please fill them before submitting.' })
+    res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
   const regexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
