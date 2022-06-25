@@ -21,11 +21,11 @@ const userSchema = new Schema(
       required: [true, 'Password is required.']
     },
     dateOfBirth: {
-      type: String,
+      type: Date,
       required: [true, 'Date of birth is required.']
     },
     languageSkills: {
-      type: String,
+      type: [String],
       required: [true, 'This field is required.']
     }
   },
