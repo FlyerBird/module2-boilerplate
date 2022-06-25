@@ -19,6 +19,14 @@ const userSchema = new Schema(
     hashedPassword: {
       type: String,
       required: [true, 'Password is required.']
+    },
+    dateOfBirth: {
+      type: String,
+      required: [true, 'Date of birth is required.']
+    },
+    languageSkills: {
+      type: String,
+      required: [true, 'This field is required.']
     }
   },
   {
