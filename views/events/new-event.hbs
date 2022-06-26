@@ -1,0 +1,41 @@
+<a href="/">
+<img src="/images/arrow-back.png" alt="arrowBack" width="20px">
+</a>
+
+<h1>Create new event</h1>
+
+<div id="form">
+  <form action="/events/new-event" method="POST">
+ 
+    <label>Location</label>
+      <input type="text" name="location" placeholder="Presential/Online" />
+ 
+    <label>Date</label>
+      <input type="date" name="date" placeholder="" />
+    
+    <label>Time</label>
+      <input type="time" name="time" placeholder="" />
+
+    <label>Assisstants</label>
+      <input type="number" name="assisstants"/>
+
+    <label>Description</label>
+      <input type="text" name="eventDescription"/>
+
+    <label>Languages</label>
+      <select name="languageSkills" multiple>
+            <option value="Spanish">Spanish</option>
+            <option value="English">English</option>
+            <option value="Catalan">Catalan</option>
+            <option value="French">French</option>
+            <option value="Deutsch">Deutsch</option>
+      </select>
+
+      {{#if error}}
+      <p style="color: red;">{{error}}</p>
+      {{/if}}
+ 
+    <button type="submit">Create Event</button>
+ 
+  </form>
+</div>
