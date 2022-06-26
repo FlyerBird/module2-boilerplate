@@ -13,7 +13,7 @@ const eventSchema = new Schema(
     }, 
     time: {
         type: Number,
-        required: [true, 'Time is required'],
+        required: [true, 'Time range is 08:00-22:00'],
         min: 8,
         max: 22,
     },
@@ -27,8 +27,8 @@ const eventSchema = new Schema(
         type: String,
         required: [true, 'Description is required.']
     },
-    languageSkills: {
-        type: [String],
+    language: {
+        type: String, //en este caso solo una lengua
         required: [true, 'This field is required.']
     },
     participants: {
