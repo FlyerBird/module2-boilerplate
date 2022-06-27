@@ -5,17 +5,14 @@
 <h1>Create new event</h1>
 
 <div id="form">
-  <form action="/events/new-event" method="POST">
+  <form action="/events" method="POST">
  
     <label>Location</label>
       <input type="text" name="location" placeholder="Presential/Online" />
  
-    <label>Date</label>
-      <input type="date" name="date" placeholder="" />
+    <label>Date & Time</label>
+      <input type="datetime-local" name="date/time" placeholder="" />
     
-    <label>Time</label>
-      <input type="time" name="time" placeholder="" />
-
     <label>Assisstants</label>
       <input type="number" name="assisstants"/>
 
