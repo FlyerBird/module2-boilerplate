@@ -18,11 +18,8 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/create', (req, res, next) => {
-    try {
-        res.render('events/new-event')
-    } catch (error) {
-        next(error)
-    }
+    res.render('events/new-event');
+    console.log(req.session.currentUser)
 });
 
 
@@ -32,9 +29,8 @@ router.get('/create', (req, res, next) => {
 router.post('/create', isLoggedIn, async (req, res, next) => {
     const {location, datetime, maxAssistants, description, language } = req.body;
     try {
-        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language});
+        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id]});
         res.redirect('/events')
-        console.log("hola")
     } catch (error) {
         res.render('events/new-event');
         next(error);
