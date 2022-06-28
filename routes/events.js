@@ -11,13 +11,16 @@ const Event = require('../models/Event');
 router.get('/', async (req, res, next) => {
     try {
         const events = await Event.find({});
-        res.render('events/event', {events})
+        res.render('events/events', {events})
     } catch (error) {
         next(error)
     }
 });
 
-router.get('/create', (req, res, next) => {
+// @desc    Displays create events form
+// @route   GET /events/create
+// @access  Public
+router.get('/create', isLoggedIn, (req, res, next) => {
     res.render('events/new-event');
     console.log(req.session.currentUser)
 });
