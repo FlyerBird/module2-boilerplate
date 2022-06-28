@@ -30,9 +30,9 @@ router.get('/create', (req, res, next) => {
 // @route   POST /events/create
 // @access  Private
 router.post('/create', isLoggedIn, async (req, res, next) => {
-    const {location, date, time, maxAssistants, description, language } = req.body;
+    const {location, datetime, maxAssistants, description, language } = req.body;
     try {
-        await Event.create({location, date, time: parseInt(time), maxAssistants: parseInt(maxAssistants), description, language});
+        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language});
         res.redirect('/events')
         console.log("hola")
     } catch (error) {

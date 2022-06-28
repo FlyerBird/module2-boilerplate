@@ -7,16 +7,10 @@ const eventSchema = new Schema(
         required: [true, 'Event location is required.'],
         default: Date.now
     },
-    date: {
+    datetime: {
         type: Date,
         required: [true, 'Date is required'],
     }, 
-    time: {
-        type: Number,
-        required: [true, 'Time range is 08:00-22:00'],
-        min: 8,
-        max: 22,
-    },
     maxAssistants: {
         type: Number,
         min: 2,
