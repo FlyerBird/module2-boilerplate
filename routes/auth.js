@@ -91,6 +91,22 @@ router.post('/login', async (req, res, next) => {
   }
 })
 
+// @desc    Edit user profile
+// @route   POST /auth/profile
+// @access  Private
+router.post('/profile', isLoggedIn, async (req,res,next) => {
+  const id = req.session.currentUser._id
+  const { email, password, fullname, username, dateOfBirth, languageSkills } = req.body;
+  try {
+      const salt = await bcrypt.genSalt(saltRounds);
+      const hashedPassword = await bcrypt.hash(password, salt);
+      await User.findByIdAndUpdate(id, {email, hashedPassword, fullname, username, dateOfBirth, languageSkills});
+      res.redirect('/auth/profile');
+  } catch (error) {
+      next(error)
+  }
+})
+
 // @desc    Destroy user session and log out
 // @route   POST /auth/logout
 // @access  Private
