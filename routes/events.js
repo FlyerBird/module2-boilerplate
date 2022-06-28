@@ -22,7 +22,6 @@ router.get('/', async (req, res, next) => {
 // @access  Public
 router.get('/create', isLoggedIn, (req, res, next) => {
     res.render('events/new-event');
-    console.log(req.session.currentUser)
 });
 
 

@@ -23,9 +23,9 @@ router.get('/login', async (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', async (req, res, next) => {
-  const { email, password, username, dateOfBirth, languageSkills } = req.body;
+  const { email, password, fullname, username, dateOfBirth, languageSkills } = req.body;
   // ⚠️ Add validations!
-  if (!email || !password || !username || !dateOfBirth || !languageSkills) {
+  if (!email || !password || !username || !dateOfBirth || !languageSkills || !fullname) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
@@ -46,7 +46,7 @@ router.post('/signup', async (req, res, next) => {
     } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, hashedPassword, dateOfBirth, languageSkills });
+    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills });
     res.render('auth/profile', user)
     }
   } catch (error) {
