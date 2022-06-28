@@ -11,7 +11,15 @@ const Event = require('../models/Event');
 router.get('/', async (req, res, next) => {
     try {
         const events = await Event.find({});
-        res.render('events/events', {events})
+        res.render('events/event', {events})
+    } catch (error) {
+        next(error)
+    }
+});
+
+router.get('/create', (req, res, next) => {
+    try {
+        res.render('events/new-event')
     } catch (error) {
         next(error)
     }
@@ -26,6 +34,7 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
     try {
         await Event.create({location, date, time: parseInt(time), maxAssistants: parseInt(maxAssistants), description, language});
         res.redirect('/events')
+        console.log("hola")
     } catch (error) {
         res.render('events/new-event');
         next(error);
