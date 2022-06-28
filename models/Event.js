@@ -5,7 +5,6 @@ const eventSchema = new Schema(
     location: {
         type: String,
         required: [true, 'Event location is required.'],
-        default: Date.now
     },
     datetime: {
         type: Date,
@@ -22,13 +21,17 @@ const eventSchema = new Schema(
         required: [true, 'Description is required.']
     },
     language: {
-        type: String, //en este caso solo una lengua
+        type: String, 
         required: [true, 'This field is required.']
     },
     participants: {
         type: [Schema.Types.ObjectId],
         ref: 'User',
     },
+    organiser: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    }
   },
   {
     timestamps: true

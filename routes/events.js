@@ -32,7 +32,7 @@ router.get('/create', isLoggedIn, (req, res, next) => {
 router.post('/create', isLoggedIn, async (req, res, next) => {
     const {location, datetime, maxAssistants, description, language } = req.body;
     try {
-        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id]});
+        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
         res.redirect('/events')
     } catch (error) {
         res.render('events/new-event');

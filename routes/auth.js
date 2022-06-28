@@ -27,6 +27,14 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
   res.render('auth/profile', user);
 })
 
+// @desc    Displays user profile view
+// @route   GET /auth/private
+// @access  Private
+router.get('/profile/edit', isLoggedIn, (req, res, next) => {
+  const user = req.session.currentUser;
+  res.render('auth/editProfile', user);
+})
+
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
@@ -81,7 +89,7 @@ router.post('/login', async (req, res, next) => {
       const match = await bcrypt.compare(password, user.hashedPassword);
       if (match) {
         req.session.currentUser = user;
-        res.render('auth/profile', user);
+        res.redirect('/auth/profile');
       } else {
         res.render('auth/login', { error: "Unable to authenticate user" });
       }
@@ -92,15 +100,13 @@ router.post('/login', async (req, res, next) => {
 })
 
 // @desc    Edit user profile
-// @route   POST /auth/profile
+// @route   POST /auth/profile/edit
 // @access  Private
-router.post('/profile', isLoggedIn, async (req,res,next) => {
+router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id
-  const { email, password, fullname, username, dateOfBirth, languageSkills } = req.body;
+  const { email, fullname, username, dateOfBirth, languageSkills } = req.body;
   try {
-      const salt = await bcrypt.genSalt(saltRounds);
-      const hashedPassword = await bcrypt.hash(password, salt);
-      await User.findByIdAndUpdate(id, {email, hashedPassword, fullname, username, dateOfBirth, languageSkills});
+      await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills});
       res.redirect('/auth/profile');
   } catch (error) {
       next(error)
