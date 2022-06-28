@@ -1,2 +1,8 @@
 <h1>Welcome {{username}}</h1>
+<p>You speak:</p>
+<ul>
+{{#each languageSkills}}
+<li>{{this}}</li>
+{{/each}}
+</ul>
 <a href="/auth/profile/edit">Edit your profile</a>

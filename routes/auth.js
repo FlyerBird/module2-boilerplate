@@ -27,7 +27,7 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
   res.render('auth/profile', user);
 })
 
-// @desc    Displays user profile view
+// @desc    Edit user profile view
 // @route   GET /auth/private
 // @access  Private
 router.get('/profile/edit', isLoggedIn, (req, res, next) => {
@@ -106,8 +106,15 @@ router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id
   const { email, fullname, username, dateOfBirth, languageSkills } = req.body;
   try {
-      await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills});
-      res.redirect('/auth/profile');
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills});
+      req.session.destroy((err) => {
+        if (err) {
+          next(err)
+        } else {
+          res.redirect('/auth/login');
+        }
+      });
+      res.redirect('/auth/login');
   } catch (error) {
       next(error)
   }
