@@ -1,1 +1,37 @@
 <h1>Welcome {{ fullname }}</h1>
+
+<div id="form">
+  <form action="/auth/signup" method="POST">
+ 
+    <label>Username</label>
+      <input type="text" name="username" value={{this.username}} />
+ 
+    <label>Email</label>
+      <input type="email" name="email" value={{this.email}} />
+    
+    <label>Full Name</label>
+      <input type="text" name="fullname" value={{this.fullname}} />
+
+    <label>Password</label>
+      <input type="password" name="password" value={{this.hashedPassword}} />
+
+    <label>Date of birth</label>
+      <input type="date" name="dateOfBirth"  value={{this.dateOfBirth}}/>
+
+    <label>Languages</label>
+      <select name="languageSkills" multiple>
+            <option value="Spanish">Spanish</option>
+            <option value="English">English</option>
+            <option value="Catalan">Catalan</option>
+            <option value="French">French</option>
+            <option value="Deutsch">Deutsch</option>
+      </select>
+
+      {{#if error}}
+      <p style="color: red;">{{error}}</p>
+      {{/if}}
+ 
+    <button type="submit">Modify profile account</button>
+ 
+  </form>
+</div>
