@@ -8,15 +8,23 @@ const saltRounds = 10;
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
 // @access  Public
-router.get('/signup', async (req, res, next) => {
+router.get('/signup', (req, res, next) => {
   res.render('auth/signup');
 })
 
 // @desc    Displays form view to log in
 // @route   GET /auth/login
 // @access  Public
-router.get('/login', async (req, res, next) => {
+router.get('/login', (req, res, next) => {
   res.render('auth/login');
+})
+
+// @desc    Displays user profile view
+// @route   GET /auth/private
+// @access  Private
+router.get('/profile', isLoggedIn, (req, res, next) => {
+  const user = req.session.currentUser;
+  res.render('auth/profile', user);
 })
 
 // @desc    Sends user auth data to database to create a new user
@@ -65,7 +73,6 @@ router.post('/login', async (req, res, next) => {
     return;
   }
   try {
-    // Remember to assign user to session cookie:
     const user = await User.findOne({ email: email });
     if (!user) {
       res.render('auth/login', { error: "User not found" });
