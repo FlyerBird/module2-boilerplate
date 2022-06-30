@@ -1,27 +1,44 @@
-<a href="/">
-<img src="/images/arrow-back.png" alt="arrowBack" width="20px">
-</a>
+
+<div class="arrowBack">
+  <a href="/">
+    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
+  </a>
+</div>
 
 
-<h2>Welcome Back!</h2>
+<div class="welcomeBack">
+  <h2>Welcome Back!</h2>
+</div>
 
-<div>
+
+<div class="formLogin">
   <form action="/auth/login" method="POST">
  
+ <div>
     <label>Email</label>
+    <br>
     <input type="email" name="email" placeholder="john@doe.com" />
     <br>
-    <label>Password</label>
+ </div>
+  
+<div>
+   <label>Password</label>
+    <br>
     <input type="password" name="password" placeholder="********" />
      <br>
+</div>
+   
+<div>
       <label>Remember me</label>
     <input type="radio" name="rememberMe" />
      <br>
     {{#if error}}
     <p style="color:rgb(218, 90, 90)">{{ error }}</p>
     {{/if}}
+</div>
+  
     
-    <button type="submit">Login</button>
+    <button type="submit" class="loginButton">Login</button>
 
   </form>
 </div>

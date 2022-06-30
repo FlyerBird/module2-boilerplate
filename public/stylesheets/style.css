@@ -3,3 +3,49 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+
+/* LAYOUT AND INDEX */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.nav a{
+  text-decoration: none;
+  padding: 20px;
+}
+
+#iTalk{
+  display: flex;
+  justify-content: center;
+}
+
+/* LOG IN */
+
+.arrowBack{
+  padding: 0px 20px;
+}
+
+.welcomeBack{
+  padding: 0px 20px;
+}
+
+.formLogin{
+  padding: 0px 20px;
+}
+
+.formLogin form{
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.loginButton{
+  position: relative;
+  top: 200px;
+}
+
+
