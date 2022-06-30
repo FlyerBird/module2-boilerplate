@@ -31,12 +31,14 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     const { eventId } = req.params;
     try {
       const user = req.session.currentUser._id;
+      console.log('djksfsdkjfn');
       const event = await Event.findById(eventId);
-      if (user === event.organiser) {
+      console.log(event)
+      //if (user === event.organiser) {
       res.render('events/edit-event', event)
-      } else {
-        res.redirect('/');
-      }
+      // } else {
+        //res.redirect('/');
+      //}
     } catch (error) {
       next(error);
     }
