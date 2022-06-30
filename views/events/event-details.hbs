@@ -20,10 +20,10 @@
 
 <p>Participants:</p>
     {{#each event.participants}}
-    <p>Username: {{this.username}}</p>
+    <p>{{this.username}}</p>
     {{/each}}
 
-{{#if user}}
+{{#if check}}
     <div>
       <a href="/events/edit/{{event._id}}">Edit 📝</a>
       <form method="POST" action="/events/delete/{{event._id}}">

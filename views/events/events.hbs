@@ -15,7 +15,10 @@
 </p>
 
 <p>
-    Participants: {{this.participants}}
+    Participants: 
+    {{#each participants}}
+    <p>{{this.fullname}}</p>
+    {{/each}}
 </p>
 
 

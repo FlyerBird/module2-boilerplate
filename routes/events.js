@@ -11,7 +11,7 @@ const Event = require('../models/Event');
 router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-        const events = await Event.find({});
+        const events = await Event.find({}).populate('participants');
         res.render('events/events', {events, user})
     } catch (error) {
         next(error)
@@ -105,11 +105,12 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
     const {eventId} = req.params;
     try {
         const user = req.session.currentUser;
+        const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate(['organiser', 'participants']);
-        if (user.email === event.organiser.email) {
-        res.render('events/event-details', {event, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
+        if (check.email === event.organiser.email) {
+        res.render('events/event-details', {event, check, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
         } else {
-            res.render('events/event-details', {event})
+            res.render('events/event-details', {event, user})
         }
     } catch (error) {
         next(error)
