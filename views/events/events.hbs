@@ -3,19 +3,11 @@
 {{#each events}}
 
 <p>
-    Location: {{this.location}}
+    <a href="/events/{{this._id}}">{{ this.location }}</a>
 </p>
 
 <p>
     Date / Time: {{this.datetime}}
-</p>
-
-<p>
-    Max Assisstants: {{this.maxAssistants}}
-</p>
-
-<p>
-    Description: {{this.description}}
 </p>
 
 <p>
