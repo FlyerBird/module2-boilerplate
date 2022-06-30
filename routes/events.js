@@ -22,9 +22,64 @@ router.get('/', async (req, res, next) => {
 // @access  Public
 router.get('/create', isLoggedIn, (req, res, next) => {
     res.render('events/new-event');
-    console.log(req.session.currentUser)
 });
 
+// @desc    Displays edit events form only for oganiser
+// @route   GET /events/create
+// @access  Private, only event organiser
+router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
+    const { eventId } = req.params;
+    try {
+      const user = req.session.currentUser._id;
+      const event = await Event.findById(eventId);
+      if (user === event.organiser) {
+      res.render('events/edit-event', event)
+      } else {
+        res.redirect('/');
+      }
+    } catch (error) {
+      next(error);
+    }
+  });
+
+// @desc    Edits events form only for oganiser
+// @route   POST /events/edit/eventId
+// @access  Private, only event organiser
+  router.post('/edit/:eventId', isLoggedIn, async (req, res, next) => {
+    const { eventId } = req.params;
+    const { location, datetime, maxAssistants, description, language } = req.body;
+    try {
+      const user = req.session.currentUser._id;
+      const event = await Event.findById(eventId);
+      if (user === event.organiser) {
+      await Event.findByIdAndUpdate(eventId, { location, datetime, maxAssistants: parseInt(maxAssistants), description, language });
+      res.redirect(`/events/${eventId}`) 
+    } else {
+        res.redirect('/');
+      }
+    } catch (error) {
+      next(error);
+    }
+  })
+  
+// @desc    Deletes event only for oganiser
+// @route   POST /events/delete/eventId
+// @access  Private, only event organiser
+  router.post('/delete/:eventId', isLoggedIn, async (req, res, next) => {
+    const { eventId } = req.params;
+    try {
+        const user = req.session.currentUser._id;
+        const event = await Event.findById(eventId);
+        if (user === event.organiser) {
+        await Event.findByIdAndDelete(eventId);
+        res.redirect('/') 
+      } else {
+          res.redirect('/');
+        }
+    } catch (error) {
+      next(error);
+    }
+  });
 
 // @desc    Creates a new event
 // @route   POST /events/create
@@ -40,5 +95,20 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
     }
 
 });
+
+// @desc    Displays details of event
+// @route   GET /events/:id
+// @access  Private
+router.get('/:eventId', isLoggedIn, async (req, res, next) => {
+    const {eventId} = req.params;
+    const user = req.session.currentUser._id;
+    try {
+        const event = await Event.findById(eventId).populate('participants', 'organiser')
+        res.render('events/event-details', {event, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
+    } catch (error) {
+        next(error)
+    }
+});
+
 
 module.exports = router;
