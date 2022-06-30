@@ -39,15 +39,20 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', async (req, res, next) => {
-  const { email, password, fullname, username, dateOfBirth, languageSkills } = req.body;
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills } = req.body;
   // ⚠️ Add validations!
-  if (!email || !password || !username || !dateOfBirth || !languageSkills || !fullname) {
+  if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
   const regexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   if (!regexPassword.test(password)) {
       res.render('auth/signup', { error: 'Password must have lowercase letters, uppercase letters and at least one number.' })
+      return;
+  }
+
+  if (password !== confirmPassword) {
+    res.render('auth/signup', { error: 'Password do not match ' })
       return;
   }
   try {
