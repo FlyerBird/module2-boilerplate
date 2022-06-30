@@ -1,0 +1,31 @@
+<h1>Edit your Event</h1>
+
+<div id="form">
+  <form action="/events/edit-event" method="POST">
+ 
+    <label>Location</label>
+      <input type="text" name="location" value={{this.location}} />
+ 
+    <label>Date-Time</label>
+      <input type="date" name="datetime" value={{this.datetime}} />
+
+    <label>Description</label>
+      <input type="text" name="description" value={{this.description}} />
+
+    <label>Languages</label>
+      <select name="languageSkills" multiple>
+            <option value="Spanish">Spanish</option>
+            <option value="English">English</option>
+            <option value="Catalan">Catalan</option>
+            <option value="French">French</option>
+            <option value="Deutsch">Deutsch</option>
+      </select>
+
+      {{#if error}}
+      <p style="color: red;">{{error}}</p>
+      {{/if}}
+ 
+    <button type="submit">Edit</button>
+ 
+  </form>
+</div>
