@@ -53,7 +53,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       const event = await Event.findById(eventId);
       if (user === event.organiser) {
       await Event.findByIdAndUpdate(eventId, { location, datetime, maxAssistants: parseInt(maxAssistants), description, language });
-      res.redirect(`/events/${eventId}`) 
+      res.redirect(`/${eventId}`) 
     } else {
         res.redirect('/');
       }
