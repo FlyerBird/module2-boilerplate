@@ -9,10 +9,16 @@
 </head>
 <body>
   <nav class="nav">
+    {{#unless user}}
     <a href="/auth/login">Log in</a>
     <a href="/auth/signup">Sign up</a>
+    <a href="/events">View local events!</a>
+    {{else}}
+    <a href="/events">View local events!</a>
+    <a href="/events/create">Post event</a>
     <a href="/auth/profile">My profile</a>
-    <form action="/auth/logout" method="POST"><button type="submit">Log out</button></form>   
+    <form action="/auth/logout" method="POST"><button type="submit">Log out</button></form>
+    {{/unless}}    
   </nav>
     {{{ body }}}
 </body>

@@ -9,14 +9,16 @@ const saltRounds = 10;
 // @route   GET /auth/signup
 // @access  Public
 router.get('/signup', (req, res, next) => {
-  res.render('auth/signup');
+  const user = req.session.currentUser;
+  res.render('auth/signup', {user});
 })
 
 // @desc    Displays form view to log in
 // @route   GET /auth/login
 // @access  Public
 router.get('/login', (req, res, next) => {
-  res.render('auth/login');
+  const user = req.session.currentUser;
+  res.render('auth/login', {user});
 })
 
 // @desc    Displays user profile view
@@ -24,7 +26,7 @@ router.get('/login', (req, res, next) => {
 // @access  Private
 router.get('/profile', isLoggedIn, (req, res, next) => {
   const user = req.session.currentUser;
-  res.render('auth/profile', user);
+  res.render('auth/profile', {user});
 })
 
 // @desc    Edit user profile view
@@ -32,7 +34,7 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
 // @access  Private
 router.get('/profile/edit', isLoggedIn, (req, res, next) => {
   const user = req.session.currentUser;
-  res.render('auth/editProfile', user);
+  res.render('auth/editProfile', {user});
 })
 
 // @desc    Sends user auth data to database to create a new user

@@ -9,9 +9,10 @@ const Event = require('../models/Event');
 // @route   GET /events
 // @access  Public
 router.get('/', async (req, res, next) => {
+    const user = req.session.currentUser;
     try {
         const events = await Event.find({});
-        res.render('events/events', {events})
+        res.render('events/events', {events, user})
     } catch (error) {
         next(error)
     }
@@ -21,7 +22,8 @@ router.get('/', async (req, res, next) => {
 // @route   GET /events/create
 // @access  Public
 router.get('/create', isLoggedIn, (req, res, next) => {
-    res.render('events/new-event');
+    const user = req.session.currentUser;
+    res.render('events/new-event', {user});
 });
 
 // @desc    Displays edit events form only for oganiser
@@ -33,7 +35,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
       if (user.email === event.organiser.email) {
-      res.render('events/edit-event', event)
+      res.render('events/edit-event', {event, user})
       } else {
         res.redirect('/');
       }
