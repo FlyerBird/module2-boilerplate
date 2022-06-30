@@ -104,7 +104,11 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
     const user = req.session.currentUser._id;
     try {
         const event = await Event.findById(eventId).populate('participants', 'organiser')
+        if (user === event.organiser) {
         res.render('events/event-details', {event, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
+        } else {
+            res.render('events/event-details', {event})
+        }
     } catch (error) {
         next(error)
     }
