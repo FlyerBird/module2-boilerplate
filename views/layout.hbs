@@ -8,6 +8,8 @@
   <title>Project module 2</title>
 </head>
 <body>
+  <div class="main">
+ {{{ body }}}
   <nav class="nav">
     {{#unless user}}
     <a href="/auth/login">Log in</a>
@@ -20,6 +22,6 @@
     <form action="/auth/logout" method="POST"><button type="submit">Log out</button></form>
     {{/unless}}    
   </nav>
-    {{{ body }}}
+  </div>
 </body>
 </html>

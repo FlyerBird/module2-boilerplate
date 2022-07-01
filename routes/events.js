@@ -107,7 +107,7 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
     try {
         const user = req.session.currentUser;
         const check = req.session.currentUser;
-        const event = await Event.findById(eventId).populate(['organiser', 'participants']);
+        const event = await Event.findById(eventId).populate('organiser participants');
         if (check.email === event.organiser.email) {
         res.render('events/event-details', {event, check, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
         } else {

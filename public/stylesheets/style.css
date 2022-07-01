@@ -4,22 +4,39 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+/* MAIN */
+
+.main {
+  height: 100vh;
+}
+
 /* LAYOUT AND INDEX */
 
 .nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  
+  gap: 20px;
 }
 
 .nav a{
   text-decoration: none;
   padding: 20px;
+  border: 1px solid rgb(23, 22, 22);
+  
 }
 
 #iTalk{
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 40%;
+}
+
+#iTalk h1 {
+  font-size: 50px;
 }
 
 /* LOG IN */
