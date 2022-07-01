@@ -40,14 +40,6 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       } else {
         res.redirect('/');
       }
-      console.log('djksfsdkjfn');
-      console.log(event)
-      //if (user === event.organiser) {
-      res.render('events/edit-event', event)
-      // } else {
-        //res.redirect('/');
-      //}
-
     } catch (error) {
       next(error);
     }
@@ -63,8 +55,8 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
       if (user.email === event.organiser.email) {
-      await Event.findByIdAndUpdate(eventId, { location, datetime, maxAssistants: parseInt(maxAssistants), description, language });
-      res.redirect(`/${eventId}`) 
+      await Event.findByIdAndUpdate(eventId, { location, datetime, description, language });
+      res.redirect(`/events/${eventId}`); 
     } else {
         res.redirect('/');
       }

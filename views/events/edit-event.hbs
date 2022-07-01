@@ -1,16 +1,16 @@
 <h1>Edit your Event</h1>
 
 <div id="form">
-  <form action="/events/:eventId" method="POST">
+  <form action="/events/edit/{{event._id}}" method="POST">
  
     <label>Location</label>
-      <input type="text" name="location" placeholder={{this.location}} />
+      <input type="text" name="location" value={{event.location}} />
  
     <label>Date-Time</label>
-      <input type="date" name="datetime" value={{this.datetime}} />
+      <input type="date" name="datetime" value={{event.datetime}} />
 
     <label>Description</label>
-      <input type="text" name="description" value={{this.description}} />
+      <input type="text" name="description" value={{event.description}} />
 
     <label>Languages</label>
       <select name="languageSkills" multiple>
