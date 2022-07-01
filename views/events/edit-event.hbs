@@ -1,10 +1,10 @@
 <h1>Edit your Event</h1>
 
 <div id="form">
-  <form action="/events/edit-event" method="POST">
+  <form action="/events/:eventId" method="POST">
  
     <label>Location</label>
-      <input type="text" name="location" value={{this.location}} />
+      <input type="text" name="location" placeholder={{this.location}} />
  
     <label>Date-Time</label>
       <input type="date" name="datetime" value={{this.datetime}} />

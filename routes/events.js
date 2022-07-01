@@ -32,6 +32,7 @@ router.get('/create', isLoggedIn, (req, res, next) => {
 router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     const { eventId } = req.params;
     try {
+
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
       if (user.email === event.organiser.email) {
@@ -39,6 +40,14 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       } else {
         res.redirect('/');
       }
+      console.log('djksfsdkjfn');
+      console.log(event)
+      //if (user === event.organiser) {
+      res.render('events/edit-event', event)
+      // } else {
+        //res.redirect('/');
+      //}
+
     } catch (error) {
       next(error);
     }
