@@ -113,15 +113,11 @@ router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id
   const { email, fullname, username, dateOfBirth, languageSkills } = req.body;
   try {
-      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills});
-      req.session.destroy((err) => {
-        if (err) {
-          next(err)
-        } else {
-          res.redirect('/auth/login');
-        }
-      });
-      res.redirect('/auth/login');
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills}, {new:true});
+      if(user) {
+        req.session.currentUser = user;
+        res.render('auth/editProfile', {user})
+      }
   } catch (error) {
       next(error)
   }

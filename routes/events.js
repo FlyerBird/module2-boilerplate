@@ -50,7 +50,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 // @access  Private, only event organiser
   router.post('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     const { eventId } = req.params;
-    const { location, datetime, maxAssistants, description, language } = req.body;
+    const { location, datetime, description, language } = req.body;
     try {
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
