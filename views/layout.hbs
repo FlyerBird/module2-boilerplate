@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='/stylesheets/style.css' rel="stylesheet"/>
+  <script src="https://kit.fontawesome.com/da865e606b.js" crossorigin="anonymous"></script>
   <title>Project module 2</title>
 </head>
 <body>
@@ -12,8 +13,8 @@
  {{{ body }}}
   <nav class="nav">
     {{#unless user}}
+    <a href="/auth/signup"><i class="fa-solid fa-user-plus"></i></a>
     <a href="/auth/login">Log in</a>
-    <a href="/auth/signup">Sign up</a>
     <a href="/events">View local events</a>
     {{else}}
     <a href="/events">View local events</a>
