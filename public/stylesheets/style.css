@@ -1,7 +1,6 @@
 body {
   padding: 0;
   margin: 0;
-  
   font-family: 'Spline Sans Mono', monospace;
 }
 
@@ -9,7 +8,11 @@ body {
 
 .main {
   height: 100vh;
-  
+  padding-bottom: 100px;
+}
+
+.definition {
+  padding-bottom: 100px;
 }
 
 .imageIndex {
@@ -47,6 +50,7 @@ body {
 
 #iTalk h1 {
   font-size: 50px;
+  color: black;
 }
 
 /* LOG IN */
