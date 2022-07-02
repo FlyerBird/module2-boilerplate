@@ -1,13 +1,15 @@
 body {
   padding: 0;
   margin: 0;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  
+  font-family: 'Spline Sans Mono', monospace;
 }
 
 /* MAIN */
 
 .main {
   height: 100vh;
+  
 }
 
 /* LAYOUT AND INDEX */
@@ -18,14 +20,15 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  background-color: aliceblue;
+  gap: 40px;
+  background-color: #0DCDAA;
+  border-radius: 20px 20px 0px 0px;
 }
 
 .nav a{
   text-decoration: none;
   padding: 20px;
-  border: 1px solid rgb(23, 22, 22);
+  
   
 }
 
@@ -44,6 +47,7 @@ body {
 
 .arrowBack{
   padding: 0px 20px;
+  position:fixed;
 }
 
 .welcomeBack{
@@ -77,8 +81,12 @@ body {
 }
 
 /* VIEW EVENTS */
-.events{
+.allEvents{
   padding: 0px 20px;
+}
+
+.viewEvents {
+  margin-bottom: 100px;
 }
 
 
