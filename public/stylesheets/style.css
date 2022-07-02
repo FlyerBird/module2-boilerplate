@@ -18,7 +18,7 @@ body {
 .imageIndex {
   height: 100vh;
   background-repeat: no-repeat;
-  background-image: url('https://media-exp1.licdn.com/dms/image/C4E12AQHI_lSAJS3-fA/article-cover_image-shrink_720_1280/0/1539617818849?e=1657152000&v=beta&t=K0Q9d-oqLK3FQi-zMvHpNb3MN5IZWM9yEmjtu26bkvg');
+  background-image: url('https://images.unsplash.com/photo-1562086780-1c95244efd6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
 }
 
 /* LAYOUT AND INDEX */
@@ -32,13 +32,18 @@ body {
   gap: 40px;
   background-color: #0DCDAA;
   border-radius: 20px 20px 0px 0px;
+  
 }
 
 .nav a{
   text-decoration: none;
   padding: 20px;
+  color: #F2F2F2;
   
-  
+}
+
+.nav a i {
+  font-size: 25px;
 }
 
 #iTalk{
@@ -50,14 +55,20 @@ body {
 
 #iTalk h1 {
   font-size: 50px;
-  color: black;
+  color: #F2F2F2;
+}
+
+.indexText {
+  padding: 20px;
 }
 
 /* LOG IN */
 
 .arrowBack{
-  padding: 0px 20px;
+  padding: 10px 20px;
   position:fixed;
+  background-color: #F2F2F2;
+  width: 100%;
 }
 
 .welcomeBack{
@@ -92,11 +103,10 @@ body {
 
 /* VIEW EVENTS */
 .allEvents{
-  padding: 0px 20px;
+  padding: 20px 20px;
+  
 }
 
-.viewEvents {
-  margin-bottom: 100px;
-}
+
 
 
