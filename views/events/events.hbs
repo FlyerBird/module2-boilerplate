@@ -1,6 +1,15 @@
-<h1>Events</h1>
+<div class="arrowBack">
+  <a href="/">
+    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
+  </a>
+</div>
 
-{{#each events}}
+<div class="events">
+  <h1>Events</h1>
+
+
+
+    {{#each events}}
 
 <p>
     <a href="/events/{{this._id}}">{{ this.location }}</a>
@@ -23,3 +32,4 @@
 
 
 {{/each}}
+</div>
