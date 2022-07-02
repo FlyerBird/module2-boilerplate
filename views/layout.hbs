@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='/stylesheets/style.css' rel="stylesheet"/>
   <script src="https://kit.fontawesome.com/da865e606b.js" crossorigin="anonymous"></script>
-  <title>Project module 2</title>
+  <title>iTalk</title>
 </head>
 <body>
   <div class="main">
@@ -14,13 +14,12 @@
   <nav class="nav">
     {{#unless user}}
     <a href="/auth/signup"><i class="fa-solid fa-user-plus"></i></a>
-    <a href="/auth/login">Log in</a>
-    <a href="/events">View local events</a>
+    <a href="/auth/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+    <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
     {{else}}
-    <a href="/events">View local events</a>
-    <a href="/events/create">Post event</a>
-    <a href="/auth/profile">My profile</a>
-    <form action="/auth/logout" method="POST"><button type="submit">Log out</button></form>
+    <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <a href="/events/create"><i class="fa-solid fa-calendar-plus"></i></a>
+    <a href="/auth/profile"><i class="fa-solid fa-user"></i></a>
     {{/unless}}    
   </nav>
   </div>
