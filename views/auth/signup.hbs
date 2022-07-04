@@ -1,27 +1,53 @@
-<h1>¡Create a new account!</h1>
+<div class="arrowBack">
+  <a href="/">
+    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
+  </a>
+</div>
 
-<div id="formSignup">
+<div class="formSignup">
   <form action="/auth/signup" method="POST">
+
+  <h2>¡Create a new account!</h2>
  
-    <label>Username</label>
+ <div>
+      <label>Username</label>
+      <br>
       <input type="text" name="username" placeholder="JohnDoe88" />
- 
-    <label>Email</label>
-      <input type="email" name="email" placeholder="john@doe.com" />
+ </div>
     
-    <label>Full Name</label>
+ <div>
+      <label>Email</label>
+      <br>
+      <input type="email" name="email" placeholder="john@doe.com" />
+ </div>
+    
+<div>
+      <label>Full Name</label>
+      <br>
       <input type="text" name="fullname" />
-
-    <label>Password</label>
+</div>
+    
+<div>
+      <label>Password</label>
+      <br>
       <input type="password" name="password" placeholder="********" />
-
-    <label>Confirm Password</label>
+</div>
+   
+<div>
+      <label>Confirm Password</label>
+      <br>
       <input type="password" name="confirmPassword" placeholder="********" />
-
-    <label>Date of birth</label>
+</div>
+    
+<div>
+      <label>Date of birth</label>
+      <br>
       <input type="date" name="dateOfBirth"/>
-
-    <label>Languages</label>
+</div>
+    
+<div>
+      <label>Languages</label>
+      <br>
       <select name="languageSkills" multiple>
             <option value="Spanish">Spanish</option>
             <option value="English">English</option>
@@ -33,6 +59,8 @@
       {{#if error}}
       <p style="color: red;">{{error}}</p>
       {{/if}}
+</div>
+   
  
     <button type="submit">Create account</button>
  

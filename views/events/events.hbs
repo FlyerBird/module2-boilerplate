@@ -9,9 +9,8 @@
   <h1>Events</h1>
 
 
-
+<div class="eachEvent">
     {{#each events}}
-
 <p>
     <a href="/events/{{this._id}}">{{ this.location }}</a>
 </p>
@@ -30,9 +29,9 @@
     <p>{{this.fullname}}</p>
     {{/each}}
 </p>
-
-
 {{/each}}
+</div>
+
 </div>
 
 

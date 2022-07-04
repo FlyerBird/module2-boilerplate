@@ -5,33 +5,26 @@
   </a>
 </div>
 
-
-<div class="welcomeBack">
-  <h2>Welcome Back!</h2>
-</div>
-
-
 <div class="formLogin">
   <form action="/auth/login" method="POST">
  
+  <h2>Welcome Back!</h2>
+
  <div>
     <label>Email</label>
     <br>
     <input type="email" name="email" placeholder="john@doe.com" />
-    <br>
  </div>
   
 <div>
    <label>Password</label>
     <br>
     <input type="password" name="password" placeholder="********" />
-     <br>
 </div>
    
 <div>
-      <label>Remember me</label>
+    <label>Remember me</label>
     <input type="radio" name="rememberMe" />
-     <br>
     {{#if error}}
     <p style="color:rgb(218, 90, 90)">{{ error }}</p>
     {{/if}}

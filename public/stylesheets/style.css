@@ -19,13 +19,14 @@ body {
   height: 100vh;
   background-repeat: no-repeat;
   background-image: url('https://images.unsplash.com/photo-1562086780-1c95244efd6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  
 }
 
 /* LAYOUT AND INDEX */
 
 .nav {
   position: fixed;
-  bottom: 0;
+  bottom: -5px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -69,14 +70,14 @@ body {
   position:fixed;
   background-color: #F2F2F2;
   width: 100%;
-}
-
-.welcomeBack{
-  padding: 0px 20px;
+  top: 0;
+  z-index: 5;
 }
 
 .formLogin{
   padding: 0px 20px;
+  position: relative;
+  top: 7%;
 }
 
 .formLogin form{
@@ -91,6 +92,20 @@ body {
   top: 200px;
 }
 
+/* SIGN UP */
+.formSignup{
+  padding: 0px 20px;
+  position: relative;
+  top: 7%;
+}
+
+.formSignup form{
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 /* USER PROFILE */
 
 .welcomeUser {
@@ -103,8 +118,9 @@ body {
 
 /* VIEW EVENTS */
 .allEvents{
-  padding: 20px 20px;
-  
+  padding: 0px 20px;
+  position: relative;
+  top: 7%; 
 }
 
 
