@@ -90,13 +90,18 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 router.post('/create', isLoggedIn, async (req, res, next) => {
     const {location, datetime, maxAssistants, description, language } = req.body;
     try {
+        if (Date.parse(datetime) < Date.now()) {
+          const user = req.session.currentUser;
+          const event = {location, maxAssistants, description, language}
+          res.render('events/new-event', {error: 'Date should be greater than today', event, user});
+        } else {
         await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
         res.redirect('/events')
+        }
     } catch (error) {
         res.render('events/new-event');
         next(error);
     }
-
 });
 
 // @desc    Enrolls user into an event
