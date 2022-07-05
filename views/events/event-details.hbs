@@ -22,7 +22,7 @@
     Language: {{event.language}}
 </p>
 
-<p><strong>Organiser:{{event.organiser.fullname}}</strong></p>
+<a href="/events/userDetail/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
 
 <p>Participants:</p>
     {{#each event.participants}}
