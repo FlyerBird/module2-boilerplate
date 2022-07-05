@@ -31,3 +31,11 @@
       </form>
     </div>
 {{/if}}
+{{#unless isEnrolled}}
+<div>
+    <form method="POST" action="/events/{{event._id}}/enroll">
+        <button type="submit">Join Event</button>
+      </form>
+
+</div>
+{{/unless}}

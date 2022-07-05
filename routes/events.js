@@ -99,6 +99,19 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
 
 });
 
+
+router.post('/:eventId/enroll', isLoggedIn, async (req, res, next) => {
+  const {eventId} = req.params;
+  try {
+    const user = req.session.currentUser._id;
+    await Event.findByIdAndUpdate(eventId, {$push: {participants: user}});
+    res.redirect(`/events/${eventId}`);    
+  } catch (error) {
+    next(error)
+  }
+
+});
+
 // @desc    Displays details of event
 // @route   GET /events/:id
 // @access  Private
@@ -108,10 +121,21 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         const user = req.session.currentUser;
         const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate('organiser participants');
+
         if (check.email === event.organiser.email) {
-        res.render('events/event-details', {event, check, user})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
+        let isEnrolled = true;
+        res.render('events/event-details', {event, check, user, isEnrolled})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
         } else {
-            res.render('events/event-details', {event, user})
+            let isEnrolled = false;
+
+            event.participants.forEach(elem => {
+              if (elem.email ===  req.session.currentUser.email) {
+                isEnrolled = true;
+              }
+            })
+            
+            res.render('events/event-details', {event, user, isEnrolled})
+
         }
     } catch (error) {
         next(error)
