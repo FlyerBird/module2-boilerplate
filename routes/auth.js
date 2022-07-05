@@ -47,12 +47,11 @@ router.post('/signup', async (req, res, next) => {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
-  const regexPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
+  const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
   if (!regexPassword.test(password)) {
-      res.render('auth/signup', { error: 'Password must have lowercase letters, uppercase letters and at least one number.' })
+      res.render('auth/signup', { error: 'Password must have between 8 and 15 characters, at least one lowercase letter, one uppercase letter, one number and one special character' })
       return;
   }
-
   if (password !== confirmPassword) {
     res.render('auth/signup', { error: 'Password do not match ' })
       return;
