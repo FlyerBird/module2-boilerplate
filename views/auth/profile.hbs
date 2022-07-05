@@ -1,15 +1,19 @@
 
-<div class="welcomeUser">
-    <h1>Welcome {{user.username}}</h1>
+<div class="arrowBack">
+  <a href="/">
+    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
+  </a>
 </div>
 
-<div class="speak">
+<div class="welcomeUser">
+    <h2>Welcome {{user.username}}</h2>
     <p>You speak:</p>
     <ul>
     {{#each user.languageSkills}}
     <li>{{this}}</li>
     {{/each}}
     </ul>
+
 <a href="/auth/profile/edit">Edit your profile</a>
 <form action="/auth/logout" method="POST"><button type="submit"><i class="fa-solid fa-right-from-bracket"></i></button></form>
 </div>
