@@ -5,9 +5,12 @@
 </div>
 
 <div class="formSignup">
-  <form action="/auth/signup" method="POST">
+  <form action="/auth/signup" method="POST" enctype="multipart/form-data">
   <h2>¡Create a new account!</h2>
-  
+
+<div>
+        <input type="file" name="imageProfile" />
+</div>
  <div>
       <label>Username</label>
       <br>

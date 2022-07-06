@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 
 // Routers require
-const indexRouter = require('./routes/index');
+const indexRouter = require('./config/index');
 const authRouter = require('./routes/auth');
 const eventRouter = require('./routes/events');
 

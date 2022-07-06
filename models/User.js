@@ -31,7 +31,8 @@ const userSchema = new Schema(
     languageSkills: {
       type: [String],
       required: [true, 'This field is required.']
-    }
+    },
+    imageProfile: String
   },
   {
     timestamps: true

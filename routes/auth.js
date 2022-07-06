@@ -4,6 +4,7 @@ const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const fileUploader = require('../config/cloudinary.config');
 
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
