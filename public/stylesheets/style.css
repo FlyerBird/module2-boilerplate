@@ -2,13 +2,15 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Spline Sans Mono', monospace;
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(to right top, #e9fef7, #e1fef4, #d8fdf1, #d0fdef, #c7fcec);
 }
 
 /* MAIN */
 
 .main {
   height: 80vh;
+ 
   
 }
 
@@ -28,7 +30,7 @@ body {
 .nav {
   position: fixed;
   bottom: -5px;
-  width: 100%;
+  width: 101%;
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -58,6 +60,7 @@ body {
 #iTalk h1 {
   font-size: 50px;
   color: #F2F2F2;
+  font-weight: 900;
 }
 
 .indexText {
@@ -70,16 +73,25 @@ body {
 .arrowBack{
   padding: 10px 20px;
   position:fixed;
-  background-color: #F2F2F2;
-  width: 100%;
+  background-color: #BFBFBF;
+  width: 101%;
   top: 0;
   z-index: 5;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.arrowBack a {
+  color: white;
+}
+
+.arrowBack a i {
+  font-size: 25px;
 }
 
 .formLogin{
   padding: 0px 20px;
   position: relative;
-  top: 7%;
+  top: 12%;
 }
 
 .formLogin form{
@@ -97,8 +109,7 @@ body {
 /* SIGN UP */
 .formSignup{
   padding: 0px 20px;
-  position: relative;
-  top: 7%;
+  height: 1000px;
 }
 
 .formSignup form{
@@ -106,6 +117,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  position: relative;
+  top: 7%;
 }
 
 /* USER PROFILE */
@@ -121,8 +134,11 @@ body {
 .allEvents{
   padding: 0px 20px;
   position: relative;
-  top: 7%; 
+  top: 12%; 
   height: 2000px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
  
 }
 
@@ -137,6 +153,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.eachEvent {
+  padding: 10px;
+
+  border-radius: 20px;
+  background: #F2F2F2;
+  box-shadow:  10px 10px 20px #919191,
+               -10px -10px 20px #ffffff;
 }
 
 

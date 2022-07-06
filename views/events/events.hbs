@@ -1,16 +1,14 @@
 
 <div class="arrowBack">
-  <a href="/">
-    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
-  </a>
+  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="allEvents">
   <h1>Events</h1>
 
     {{#each events}}
-    <div>
-            <p>
+    <div class="eachEvent">
+<p>
     <a href="/events/{{this._id}}">{{ this.location }}</a>
 </p>
 
