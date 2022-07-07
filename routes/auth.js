@@ -4,7 +4,7 @@ const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-//const fileUploader = require('../config/cloudinary.config');
+const fileUploader = require('../config/cloudinary.config');
 
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
@@ -41,8 +41,8 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
-router.post('/signup', async (req, res, next) => {
-  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity } = req.body;
+router.post('/signup', fileUploader.single('imageProfile'), async (req, res, next) => {
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity, imageProfile } = req.body;
   // ⚠️ Add validations!
   if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname || !livingCity) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
@@ -109,11 +109,12 @@ router.post('/login', async (req, res, next) => {
 // @desc    Edit user profile
 // @route   POST /auth/profile/edit
 // @access  Private
-router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
+router.post('/profile/edit', isLoggedIn, fileUploader.single('imageProfile'), async (req,res,next) => {
   const id = req.session.currentUser._id
-  const { email, fullname, username, dateOfBirth, languageSkills, livingCity } = req.body;
+  const { email, fullname, username, dateOfBirth, languageSkills, livingCity, imageUrl } = req.body;
+ 
   try {
-      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, livingCity}, {new:true});
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, livingCity, imageUrl: req.file.path}, {new:true});
       if(user) {
         req.session.currentUser = user;
         res.render('auth/editProfile', {user})
