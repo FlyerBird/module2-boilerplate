@@ -47,9 +47,9 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 
   router.get('/userDetail/:organiserId', async (req, res, next) => {
     const { organiserId } = req.params;
+    const user = req.session.currentUser;
     const organiser = await User.findById(organiserId);
-    console.log(organiser);
-    res.render('events/userDetail', {organiser});
+    res.render('events/userDetail', {organiser, user});
   })
 
 // @desc    Edits events form only for oganiser
@@ -135,7 +135,6 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         const user = req.session.currentUser;
         const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate('organiser participants');
-        console.log(event.organiser)
         if (check.email === event.organiser.email) {
         let isEnrolled = true;
         res.render('events/event-details', {event, check, user, isEnrolled})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar

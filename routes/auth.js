@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
+const Event = require('../models/Event');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const fileUploader = require('../config/cloudinary.config');
@@ -42,7 +43,7 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', fileUploader.single('imageProfile'), async (req, res, next) => {
-  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity, imageProfile } = req.body;
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity} = req.body;
   // ⚠️ Add validations!
   if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname || !livingCity) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
@@ -137,6 +138,26 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
       res.redirect('/auth/login');
     }
   });
+});
+
+// @desc    Deletes user account and events created by user
+// @route   POST /auth/delete
+// @access  Private
+router.post('/delete', isLoggedIn, async (req,res,next) => {
+  const id = req.session.currentUser._id;
+  try {
+    await User.findByIdAndDelete(id);
+    await Event.deleteMany({'organiser': id});
+    req.session.destroy((err) => {
+      if (err) {
+        next(err)
+      } else {
+        res.redirect('/auth/login');
+      }
+    });
+  } catch (error) {
+    next(error)
+  }
 })
 
 module.exports = router;
