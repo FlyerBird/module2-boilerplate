@@ -47,8 +47,9 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 
   router.get('/userDetail/:organiserId', async (req, res, next) => {
     const { organiserId } = req.params;
+    const user = req.session.currentUser;
     const organiser = await User.findById(organiserId);
-    res.render('events/userDetail', {organiser});
+    res.render('events/userDetail', {organiser, user});
   })
 
 // @desc    Edits events form only for oganiser
