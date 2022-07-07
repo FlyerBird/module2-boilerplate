@@ -4,7 +4,7 @@ const isLoggedIn = require('../middlewares');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-//const fileUploader = require('../config/cloudinary.config');
+const fileUploader = require('../config/cloudinary.config');
 
 // @desc    Displays form view to sign up
 // @route   GET /auth/signup
@@ -41,8 +41,8 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @desc    Sends user auth data to database to create a new user
 // @route   POST /auth/signup
 // @access  Public
-router.post('/signup', async (req, res, next) => {
-  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills } = req.body;
+router.post('/signup', fileUploader.single('imageProfile'), async (req, res, next) => {
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, imageProfile } = req.body;
   // ⚠️ Add validations!
   if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
@@ -69,7 +69,7 @@ router.post('/signup', async (req, res, next) => {
     } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills });
+    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, imageUrl: req.file.path });
     res.render('auth/login', user)
     }
   } catch (error) {
@@ -109,11 +109,11 @@ router.post('/login', async (req, res, next) => {
 // @desc    Edit user profile
 // @route   POST /auth/profile/edit
 // @access  Private
-router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
+router.post('/profile/edit', isLoggedIn, fileUploader.single('imageProfile'), async (req,res,next) => {
   const id = req.session.currentUser._id
-  const { email, fullname, username, dateOfBirth, languageSkills } = req.body;
+  const { email, fullname, username, dateOfBirth, languageSkills, imageProfile } = req.body;
   try {
-      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills}, {new:true});
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, imageUrl: req.file.path}, {new:true});
       if(user) {
         req.session.currentUser = user;
         res.render('auth/editProfile', {user})
