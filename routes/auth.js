@@ -74,7 +74,6 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     res.render('auth/login', user)
     }
   } catch (error) {
-    console.log(error)
     next(error)
   }
 });
@@ -139,6 +138,9 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
   });
 });
 
+// @desc    Deletes user account and events created by user
+// @route   POST /auth/delete
+// @access  Private
 router.post('/delete', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id;
   try {
