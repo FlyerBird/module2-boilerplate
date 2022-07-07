@@ -5,13 +5,13 @@ const User = require('../models/User');
 const Event = require('../models/Event');
 
 
-// @desc    Displays all events
+// @desc    Displays all events sorted from new to old
 // @route   GET /events
 // @access  Public
 router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-        const events = await Event.find({}).populate('participants');
+        const events = await Event.find({}).populate('organiser');
         const sortingEventFuncion = (a,b) => {
             if(a.datetime > b.datetime){
               return -1
@@ -21,7 +21,6 @@ router.get('/', async (req, res, next) => {
             return 0
         }
         const sortedEvents = events.sort(sortingEventFuncion);
-       
         res.render('events/events', {events: sortedEvents, user})
     } catch (error) {
         next(error)
