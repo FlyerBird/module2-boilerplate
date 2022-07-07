@@ -12,7 +12,17 @@ router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
         const events = await Event.find({}).populate('participants');
-        res.render('events/events', {events, user})
+        const sortingEventFuncion = (a,b) => {
+            if(a.datetime > b.datetime){
+              return -1
+            } else if(a.datetime < b.datetime){
+              return 1
+            }
+            return 0
+        }
+        const sortedEvents = events.sort(sortingEventFuncion);
+       
+        res.render('events/events', {events: sortedEvents, user})
     } catch (error) {
         next(error)
     }
@@ -45,12 +55,19 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     }
   });
 
-  router.get('/userDetail/:organiserId', async (req, res, next) => {
+// @desc    Displays user details
+// @route   GET /events/userDetail/:id
+// @access  Private
+  router.get('/userDetail/:organiserId', isLoggedIn, async (req, res, next) => {
     const { organiserId } = req.params;
     const user = req.session.currentUser;
-    const organiser = await User.findById(organiserId);
-    res.render('events/userDetail', {organiser, user});
-  })
+    try {
+      const organiser = await User.findById(organiserId);
+      res.render('events/userDetail', {organiser, user});
+    } catch (error) {
+      next(error)
+    }
+  });
 
 // @desc    Edits events form only for oganiser
 // @route   POST /events/edit/eventId
