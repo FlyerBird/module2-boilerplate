@@ -42,9 +42,9 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', async (req, res, next) => {
-  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills } = req.body;
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity } = req.body;
   // ⚠️ Add validations!
-  if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname) {
+  if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname || !livingCity) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
@@ -69,7 +69,7 @@ router.post('/signup', async (req, res, next) => {
     } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills });
+    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity });
     res.render('auth/login', user)
     }
   } catch (error) {
@@ -111,9 +111,9 @@ router.post('/login', async (req, res, next) => {
 // @access  Private
 router.post('/profile/edit', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id
-  const { email, fullname, username, dateOfBirth, languageSkills } = req.body;
+  const { email, fullname, username, dateOfBirth, languageSkills, livingCity } = req.body;
   try {
-      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills}, {new:true});
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, livingCity}, {new:true});
       if(user) {
         req.session.currentUser = user;
         res.render('auth/editProfile', {user})

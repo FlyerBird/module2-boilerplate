@@ -24,6 +24,10 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
+    livingCity: {
+      type: String,
+      required: [true, 'Living city is required']
+    },
     dateOfBirth: {
       type: Date,
       required: [true, 'Date of birth is required.']
