@@ -4,7 +4,8 @@
   <form action="/auth/profile/edit" method="POST" enctype="multipart/form-data">
     
     <input type="file" name="imageProfile" />
-
+    <img src="{{imageProfile}}" alt="">
+    
 
     <label>Username</label>
       <input type="text" name="username" value={{user.username}} />

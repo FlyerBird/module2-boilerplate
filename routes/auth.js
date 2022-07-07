@@ -56,6 +56,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
   if (password !== confirmPassword) {
     res.render('auth/signup', { error: 'Password do not match ' })
       return;
+      
   }
   try {
     const userCheck = await User.findOne({ username: username });
@@ -71,6 +72,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity, imageProfile: req.file.path});
     res.render('auth/login', user)
+    
     }
   } catch (error) {
     next(error)
