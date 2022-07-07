@@ -36,7 +36,7 @@ const userSchema = new Schema(
       type: [String],
       required: [true, 'This field is required.']
     },
-    imageUrl: String
+    imageProfile: String
   },
   {
     timestamps: true

@@ -69,7 +69,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity });
+    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity, imageProfile: req.file.path});
     res.render('auth/login', user)
     }
   } catch (error) {
@@ -111,10 +111,10 @@ router.post('/login', async (req, res, next) => {
 // @access  Private
 router.post('/profile/edit', isLoggedIn, fileUploader.single('imageProfile'), async (req,res,next) => {
   const id = req.session.currentUser._id
-  const { email, fullname, username, dateOfBirth, languageSkills, livingCity, imageUrl } = req.body;
+  const { email, fullname, username, dateOfBirth, languageSkills, livingCity, imageProfile } = req.body;
  
   try {
-      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, livingCity, imageUrl: req.file.path}, {new:true});
+      const user = await User.findByIdAndUpdate(id, {email, fullname, username, dateOfBirth, languageSkills, livingCity, imageProfile: req.file.path}, {new:true});
       if(user) {
         req.session.currentUser = user;
         res.render('auth/editProfile', {user})
