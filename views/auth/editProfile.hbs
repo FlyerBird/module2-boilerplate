@@ -1,25 +1,44 @@
+<div class="arrowBack">
+  <a href="/auth/login"><i class="fa-solid fa-circle-arrow-left"></i></a>
+</div>
+
+<div class="editProfileForm">
 <h1>Welcome {{ user.fullname }}</h1>
 
-<div id="form">
   <form action="/auth/profile/edit" method="POST" enctype="multipart/form-data">
-    
+    <div>
+          <label>Image Profile</label>
+    <br>
     <input type="file" name="imageProfile" />
     <img src="{{imageProfile}}" alt="">
-    
-
-    <label>Username</label>
+    </div>
+  
+    <div>
+         <label>User Name</label>
+    <br>
       <input type="text" name="username" value={{user.username}} />
+    </div>
  
-    <label>Email</label>
+    <div>
+        <label>Email</label>
+    <br>
       <input type="email" name="email" value={{user.email}} />
-    
-    <label>Full Name</label>
+    </div>
+  
+    <div>
+      <label>Full Name</label>
+      <br>
       <input type="text" name="fullname" value={{user.fullname}} />
-
-    <label>Living City</label>
+    </div>
+    
+    <div>
+      <label>Living City</label>
+      <br>
     <input type="text" name="livingCity" value={{user.livingCity}} />
-
-    <label>Languages</label>
+    </div>
+    
+    <div>
+        <label>Languages</label>
       <select name="languageSkills" multiple>
             <option value="Spanish">Spanish</option>
             <option value="English">English</option>
@@ -27,12 +46,16 @@
             <option value="French">French</option>
             <option value="Deutsch">Deutsch</option>
       </select>
+  </div>
+
 
       {{#if error}}
       <p style="color: red;">{{error}}</p>
       {{/if}}
- 
+ <div class="modifyProfileButton">
     <button type="submit">Modify profile account</button>
+ </div>
+    
  
   </form>
 </div>

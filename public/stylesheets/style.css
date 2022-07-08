@@ -4,6 +4,7 @@ body {
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
   background-color: #FEF8B2;
+  
 }
 
 
@@ -13,9 +14,9 @@ body {
 
 .imageIndex {
   height: 100vh;
+  width: 100%;
   background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1562086780-1c95244efd6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
-  
+  background-image: linear-gradient(to top, #fef8b2, #d2c18f, #a28e6f, #6f6050, #3d3733);
 }
 
 /* LAYOUT AND INDEX */
@@ -50,9 +51,12 @@ body {
 
 #iTalk{
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   top: 40%;
+  gap: 150px;
 }
 
 #iTalk h1 {
@@ -60,6 +64,8 @@ body {
   color: #F2F2F2;
   font-weight: 900;
 }
+
+
 
 .indexText {
   display: flex;
@@ -69,8 +75,10 @@ body {
   padding: 30px;
   height: 500px;
   gap: 15px;
-  font-weight: 500;
+  font-weight: 540;
   font-size: 18px;
+  position: relative;
+  bottom: 50px;
 }
 
 /* LOG IN */
@@ -78,7 +86,6 @@ body {
 .arrowBack{
   padding: 10px 20px;
   position:fixed;
-
   top: 0;
   z-index: 5;
   
@@ -93,9 +100,10 @@ body {
 }
 
 .formLogin{
-  padding: 0px 20px;
+  padding: 10px 20px;
   position: relative;
-  top: 12%;
+  top: 40px; 
+  
 }
 
 .formLogin form{
@@ -108,6 +116,12 @@ body {
 .loginButton{
   position: relative;
   top: 200px;
+
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px 102px;
+  border-radius: 20px;
+  border: none;
 }
 
 /* SIGN UP */
@@ -122,7 +136,15 @@ body {
   flex-direction: column;
   gap: 15px;
   position: relative;
-  top: 7%;
+  top: 40px;
+}
+
+.createAccountButton{
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px 102px;
+  border-radius: 20px;
+  border: none;
 }
 
 /* USER PROFILE */
@@ -175,6 +197,40 @@ body {
   border-radius: 20px;
   border: 2px solid #3D3733;
   
+}
+
+/* EDIT PROFILE */
+
+.editProfileForm{
+  padding: 10px 20px;
+  position: relative;
+  top: 40px; 
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  height: 800px;
+}
+
+.editProfileForm form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modifyProfileButton{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modifyProfileButton button{
+  background-color: #3D3733;
+  color: #F2F2F2;
+
+  padding: 10px 80px;
+  border-radius: 20px;
 }
 
 /* EVENTS */
@@ -233,4 +289,10 @@ body {
   border: none;
 }
 
+/* USER DETAIL */
 
+.userDetail{
+  padding: 0px 20px;
+  position: relative;
+  top: 40px; 
+}

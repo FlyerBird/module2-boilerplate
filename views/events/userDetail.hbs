@@ -1,8 +1,14 @@
-<h2>{{organiser.username}}</h2>
+
+<div class="arrowBack">
+  <a href="/events/"><i class="fa-solid fa-circle-arrow-left"></i></a>
+</div>
+
+<div class="userDetail">
+   <h2>{{organiser.username}} Profile</h2>
  
  {{#each events}}
-    {{this.location}}
+    Events created: {{this.location}}
  {{/each}}
-<p>Events created</p>
-<p>Events joined</p>
-<p>Rank</p>
+
+
+</div>
