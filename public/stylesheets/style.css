@@ -3,16 +3,9 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  background-image: linear-gradient(to right top, #e9fef7, #e1fef4, #d8fdf1, #d0fdef, #c7fcec);
+  background-color: #FEF8B2;
 }
 
-/* MAIN */
-
-.main {
-  height: 80vh;
-  
-  
-}
 
 .definition {
   padding-bottom: 100px;
@@ -34,7 +27,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 40px;
-  background-color: #0DCDAA;
+  background-color: #3D3733;
   border-radius: 20px 20px 0px 0px;
   
 }
@@ -48,6 +41,11 @@ body {
 
 .nav a i {
   font-size: 25px;
+}
+
+.nav a img {
+  width: 30px;
+  border-radius: 50%;
 }
 
 #iTalk{
@@ -64,8 +62,15 @@ body {
 }
 
 .indexText {
-  padding: 20px;
-  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+  padding: 30px;
+  height: 500px;
+  gap: 15px;
+  font-weight: 500;
+  font-size: 18px;
 }
 
 /* LOG IN */
@@ -73,15 +78,14 @@ body {
 .arrowBack{
   padding: 10px 20px;
   position:fixed;
-  background-color: #BFBFBF;
-  width: 101%;
+
   top: 0;
   z-index: 5;
-  border-radius: 0px 0px 20px 20px;
+  
 }
 
 .arrowBack a {
-  color: white;
+  color: #3D3733;
 }
 
 .arrowBack a i {
@@ -124,28 +128,72 @@ body {
 /* USER PROFILE */
 
 .welcomeUser {
-  padding: 0px 20px;
+  padding: 10px 20px;
   position: relative;
-  top: 7%; 
+  top: 40px; 
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
+.profileButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+.editProfileButton {
+  
+  background-color: #3D3733;
+  color: #F2F2F2;
+
+  padding: 10px 80px;
+  border-radius: 20px;
+ 
+}
+
+.logoutButton button {
+  
+  background-color: #3D3733;
+  color: #F2F2F2;
+
+  padding: 10px 102px;
+  border-radius: 20px;
+  border: none;
+}
+
+.deleteAccountButton button {
+  background-color: #FEF8B2;
+  color: #3D3733;
+
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: 2px solid #3D3733;
+  
+}
 
 /* EVENTS */
 .allEvents{
   padding: 0px 20px;
   position: relative;
-  top: 12%; 
-  height: 2000px;
+  top: 40px; 
+  height: 3000px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  
  
 }
 
 .createEvent{
   padding: 0px 20px;
   position: relative;
-  top: 7%; 
+  top: 40px;
   
 }
 
@@ -157,11 +205,32 @@ body {
 
 .eachEvent {
   padding: 10px;
-
   border-radius: 20px;
-  background: #F2F2F2;
-  box-shadow:  10px 10px 20px #919191,
-               -10px -10px 20px #ffffff;
+  background: #FEF8B2;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+}
+
+.eventsDetail{
+  padding: 10px 20px;
+  position: relative;
+  top: 40px;
+  
+}
+
+.joinEventButton{
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.joinEventButton button {
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px 102px;
+  border-radius: 20px;
+  border: none;
 }
 
 

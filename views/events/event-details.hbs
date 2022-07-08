@@ -1,10 +1,11 @@
+
 <div class="arrowBack">
-  <a href="/events">
-    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
-  </a>
+  <a href="/events"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
-<h1>Event in {{event.location}}</h1>
+
+<div class="eventsDetail">
+  <h1>Event in {{event.location}}</h1>
 
 <p>
     Date / Time: {{event.datetime}}
@@ -38,10 +39,12 @@
     </div>
 {{/if}}
 {{#unless isEnrolled}}
-<div>
+<div class="joinEventButton">
     <form method="POST" action="/events/{{event._id}}/enroll">
         <button type="submit">Join Event</button>
       </form>
 
 </div>
 {{/unless}}
+
+</div>

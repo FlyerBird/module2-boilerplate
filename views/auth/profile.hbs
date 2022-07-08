@@ -1,8 +1,6 @@
 
 <div class="arrowBack">
-  <a href="/">
-    <img src="/images/arrow-back.png" alt="arrowBack" width="20px">
-  </a>
+  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="welcomeUser">
@@ -14,7 +12,10 @@
     {{/each}}
     </ul>
 
-<a href="/auth/profile/edit">Edit your profile</a>
-<form action="/auth/logout" method="POST"><button type="submit">Logout <i class="fa-solid fa-right-from-bracket"></i></button></form>
-<form action="/auth/delete" method="POST"><button type="submit">Delete your account <i class="fa-solid fa-trash"></i></button></form>
+<div class="profileButtons">
+    <a class="editProfileButton" href="/auth/profile/edit">Edit your profile</a>
+<form class="logoutButton" action="/auth/logout" method="POST"><button type="submit">Logout <i class="fa-solid fa-right-from-bracket"></i></button></form>
+<form class="deleteAccountButton" action="/auth/delete" method="POST"><button type="submit">Delete your account <i class="fa-solid fa-trash"></i></button></form>
+</div>
+
 </div>

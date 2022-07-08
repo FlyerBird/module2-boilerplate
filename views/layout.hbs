@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="main">
+  
     {{{ body }}}
     <nav class="nav">
       {{#unless user}}
@@ -31,16 +31,13 @@
       <a href="/events/create"><i class="fa-solid fa-calendar-plus"></i></a>
       <a href="/auth/profile">
         {{#if user.imageProfile}}
-        <img style="width: 30px" src="{{ user.imageProfile }}" alt="">
+        <img src="{{ user.imageProfile }}" alt="imageProfile">
         {{else}}
-        <i style="width: 30px" class="fa-solid fa-user"></i>
+        <i style="width: 25px" class="fa-solid fa-user"></i>
         {{/if}}
       </a>
-
-
       {{/unless}}
     </nav>
-  </div>
   <script src="/js/script.js"></script>
 </body>
 
