@@ -289,6 +289,11 @@ body {
   border: none;
 }
 
+.pevent a {
+  color: #3D3733;
+  font-weight: 700;
+}
+
 /* USER DETAIL */
 
 .userDetail{
