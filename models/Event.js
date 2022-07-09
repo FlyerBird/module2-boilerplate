@@ -7,7 +7,7 @@ const eventSchema = new Schema(
         required: [true, 'Event location is required.'],
     },
     datetime: {
-        type: Date,
+        type: String,
         required: [true, 'Date is required'],
     }, 
     maxAssistants: {

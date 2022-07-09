@@ -5,10 +5,11 @@
 
 <div class="userDetail">
    <h2>{{organiser.username}} Profile</h2>
- 
+  Events created:
+  <ul>
  {{#each events}}
-    Events created: {{this.location}}
+ <li>{{this.location}}</li>
  {{/each}}
-
+</ul>
 
 </div>

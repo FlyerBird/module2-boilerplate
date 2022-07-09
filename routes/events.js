@@ -11,16 +11,16 @@ const Event = require('../models/Event');
 router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-        const events = await Event.find({}).populate('organiser');
+        const eventsFromDB = await Event.find({}).populate('organiser');
         const sortingEventFuncion = (a,b) => {
-            if(a.datetime > b.datetime){
+            if (a.datetime > b.datetime) {
               return -1
-            } else if(a.datetime < b.datetime){
+            } else if(a.datetime < b.datetime) {
               return 1
             }
             return 0
         }
-        const sortedEvents = events.sort(sortingEventFuncion);
+        const sortedEvents = eventsFromDB.sort(sortingEventFuncion);
         res.render('events/events', {events: sortedEvents, user})
     } catch (error) {
         next(error)
@@ -63,7 +63,6 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     try {
       const organiser = await User.findById(organiserId);
       const events = await Event.find({'organiser': organiserId});
-      console.log(events)
       res.render('events/userDetail', {organiser, user, events});
     } catch (error) {
       next(error)
@@ -81,7 +80,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
       if (user.email === event.organiser.email) {
-      await Event.findByIdAndUpdate(eventId, { location, datetime, description, language });
+      await Event.findByIdAndUpdate(eventId, { location, datetime: datetime.toLocaleString('sp-ES'), description, language });
       res.redirect(`/events/${eventId}`); 
     } else {
         res.redirect('/');
@@ -121,7 +120,7 @@ router.post('/create', isLoggedIn, async (req, res, next) => {
           const event = {location, maxAssistants, description, language}
           res.render('events/new-event', {error: 'Date should be greater than today', event, user});
         } else {
-        await Event.create({location, datetime, maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
+        await Event.create({location, datetime: datetime.toLocaleString('sp-ES'), maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
         res.redirect('/events')
         }
     } catch (error) {
