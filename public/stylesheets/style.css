@@ -308,4 +308,51 @@ body {
   padding: 0px 20px;
   position: relative;
   top: 40px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.userDetail img{
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+}
+
+.userDetail2{
+display: flex;
+flex-direction: column;
+}
+
+/* 404 */
+
+.notFoundPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  
+  font-family: 'Titan One', cursive;
+}
+
+.Font404{
+  margin-top: 20px;
+  margin-left: 50px;
+}
+
+.homer{
+  width: 350px;
+}
+
+.button404{
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  margin: 20px;
+
+
+
+}
+

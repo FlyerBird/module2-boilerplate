@@ -4,23 +4,31 @@
 </div>
 
 <div class="userDetail">
-   <h2>{{organiser.username}} Profile</h2>
 
-   
-        {{#if organiser.imageProfile}}
+    {{#if organiser.imageProfile}}
         <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
         {{else}}
         <i style="width: 25px" class="fa-solid fa-user"></i>
         {{/if}}
-     
 
-      <br>
+   <h2>{{organiser.username}} </h2>
 
-  Events created:
-  <ul>
- {{#each events}}
- <li>{{this.location}}</li>
- {{/each}}
-</ul>
+<div class="userDetail2">
+     <br>
+<h4> Events created </h4>  
+    <ul>
+      {{#each events}}
+      <li>{{this.location}}</li>
+      <li>{{this.description}}</li>
+      {{/each}}
+    </ul>
+</div>
 
 </div>
+
+
+
+
+
+
+

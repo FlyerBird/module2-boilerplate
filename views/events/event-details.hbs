@@ -23,7 +23,15 @@
     Language: {{event.language}}
 </p>
 
-<a href="/events/userDetail/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
+<div>
+  <a href="/events/userDetail/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
+    {{#if organiser.imageProfile}}
+        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+        {{else}}
+        <i style="width: 25px" class="fa-solid fa-user"></i>
+        {{/if}}
+</div>
+
 
 <p>Participants:</p>
     {{#each event.participants}}
