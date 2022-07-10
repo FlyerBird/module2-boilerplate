@@ -5,6 +5,17 @@
 
 <div class="userDetail">
    <h2>{{organiser.username}} Profile</h2>
+
+   
+        {{#if organiser.imageProfile}}
+        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+        {{else}}
+        <i style="width: 25px" class="fa-solid fa-user"></i>
+        {{/if}}
+     
+
+      <br>
+
   Events created:
   <ul>
  {{#each events}}

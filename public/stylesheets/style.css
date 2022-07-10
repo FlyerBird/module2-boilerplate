@@ -24,7 +24,7 @@ body {
 .nav {
   position: fixed;
   bottom: -5px;
-  width: 101%;
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 40px;
@@ -257,6 +257,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.createEvent button{
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
 }
 
 .eachEvent {
