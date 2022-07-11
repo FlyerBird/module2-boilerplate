@@ -23,15 +23,17 @@
 <p>
     Organiser: {{this.organiser.fullname}}
 </p>
+
+<p>
+    Available Spots: {{this.availableSpots}}
+</p>
     </div>
   
 {{/each}}
-  
-</div>
 
-<div class="expiredEvents">
+
   <h1>Expired events</h1>
-
+<div class="allEvents">
     {{#each expiredEvents}}
     <div class="eachEvent">
 <p class="pevent">
@@ -52,7 +54,7 @@
     </div>
   
 {{/each}}
-  
+  </div>
 </div>
 
  

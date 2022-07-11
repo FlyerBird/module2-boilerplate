@@ -31,6 +31,9 @@ const eventSchema = new Schema(
     organiser: {
         type: Schema.Types.ObjectId,
         ref: 'User',
+    },
+    availableSpots: {
+        type: String,
     }
   },
   {
