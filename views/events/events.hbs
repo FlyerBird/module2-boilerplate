@@ -6,7 +6,7 @@
 <div class="allEvents">
   <h1>Events</h1>
 
-    {{#each events}}
+    {{#each ontimeEvents}}
     <div class="eachEvent">
 <p class="pevent">
     <a href="/events/{{this._id}}">{{ this.location }}</a>
@@ -30,10 +30,11 @@
     </div>
   
 {{/each}}
+</div>
 
 
-  <h1>Expired events</h1>
 <div class="allEvents">
+    <h1>Expired Events:</h1>
     {{#each expiredEvents}}
     <div class="eachEvent">
 <p class="pevent">
@@ -41,7 +42,7 @@
 </p>
 
 <p>
-    Date / Time: {{this.datetime}}
+    iTalked at {{this.datetime}}
 </p>
 
 <p>
@@ -55,7 +56,7 @@
   
 {{/each}}
   </div>
-</div>
+
 
  
 
