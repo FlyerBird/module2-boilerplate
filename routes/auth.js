@@ -143,6 +143,12 @@ router.post('/logout', isLoggedIn, (req, res, next) => {
 // @desc    Deletes user account and events created by user
 // @route   POST /auth/delete
 // @access  Private
+
+router.get('/delete/confirmation', (req, res, next) => {
+  const user = req.session.currentUser
+  res.render('auth/deleteConfirm', { user })
+})
+
 router.post('/delete', isLoggedIn, async (req,res,next) => {
   const id = req.session.currentUser._id;
   try {
