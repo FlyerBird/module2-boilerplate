@@ -24,6 +24,15 @@
     Organiser: {{this.organiser.fullname}}
 </p>
 
+<div>
+  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
+    {{#if organiser.imageProfile}}
+        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+        {{else}}
+        <i style="width: 25px" class="fa-solid fa-user"></i>
+        {{/if}}
+</div>
+
 <p>
     Available Spots: {{this.availableSpots}}
 </p>
@@ -52,6 +61,16 @@
 <p>
     Organiser: {{this.organiser.fullname}}
 </p>
+
+<div>
+  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
+    {{#if organiser.imageProfile}}
+        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+        {{else}}
+        <i style="width: 25px" class="fa-solid fa-user"></i>
+        {{/if}}
+</div>
+
     </div>
   
 {{/each}}

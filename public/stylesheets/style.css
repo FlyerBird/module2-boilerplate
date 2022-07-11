@@ -248,10 +248,11 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  
- 
 }
 
+.allEvents img{
+  border-radius: 50%;
+}
 .createEvent{
   padding: 0px 20px;
   position: relative;
