@@ -1,9 +1,15 @@
+
+/**** Color variables ****/
+:root {
+  --primary-yellow: #FEF8B2;
+}
+
 body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  background-color: #FEF8B2;
+  background-color: var(--primary-yellow);
   
 }
 
@@ -324,6 +330,31 @@ display: flex;
 flex-direction: column;
 }
 
+/* DELETE */
+
+.deleteConfirm{
+display: flex;
+flex-direction: column;
+gap: 50px;
+align-items: center;
+text-align: center;
+margin-top: 80px;
+}
+
+.deleteConfirm i{
+  font-size: 150px;
+}
+
+.deleteConfirm button{
+  background-color: #FEF8B2;
+  color: #3D3733;
+
+  padding: 10px 50px;
+  border-radius: 20px;
+  border: 2px solid #3D3733;
+}
+
+
 /* 404 */
 
 .notFoundPage{
@@ -351,8 +382,5 @@ flex-direction: column;
   border-radius: 20px;
   border: none;
   margin: 20px;
-
-
-
 }
 
