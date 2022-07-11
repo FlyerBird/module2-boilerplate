@@ -21,6 +21,11 @@ router.get('/', async (req, res, next) => {
             return 0
         }
         const sortedEvents = eventsFromDB.sort(sortingEventFuncion);
+        for (let i = 0; i<sortedEvents.length; i++) {
+          if (Date.parse(sortedEvents[i].datetime) < Date.now()) {
+            sortedEvents[i].location = "iTalk expired";
+          }
+        };
         res.render('events/events', {events: sortedEvents, user})
     } catch (error) {
         next(error)
