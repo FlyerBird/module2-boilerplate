@@ -74,7 +74,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     const user = req.session.currentUser;
     try {
       const organiser = await User.findById(organiserId);
-      const events = await Event.find({'organiser': organiserId});
+      const events = await Event.find({'participants': organiserId});
       res.render('events/userDetail', {organiser, user, events});
     } catch (error) {
       next(error)
