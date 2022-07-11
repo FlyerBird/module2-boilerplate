@@ -31,10 +31,7 @@ const eventSchema = new Schema(
     organiser: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-    },
-    isExpired: {
-        Type: Boolean,
-    },
+    }
   },
   {
     timestamps: true

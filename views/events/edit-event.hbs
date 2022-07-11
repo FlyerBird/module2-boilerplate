@@ -7,13 +7,17 @@
       <input type="text" name="location" value={{event.location}} />
  
     <label>Date-Time</label>
-      <input type="date" name="datetime" value={{event.datetime}} />
+      <input type="datetime-local" name="datetime" value={{event.datetime}} />
 
     <label>Description</label>
       <input type="text" name="description" value={{event.description}} />
 
+    <label>Assisstants</label>
+      <br>
+      <input type="number" name="maxAssistants" value="{{event.maxAssistants}}"/>
+
     <label>Languages</label>
-      <select name="languageSkills" multiple>
+      <select name="languageSkills">
             <option value="Spanish">Spanish</option>
             <option value="English">English</option>
             <option value="Catalan">Catalan</option>

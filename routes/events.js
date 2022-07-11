@@ -21,12 +21,15 @@ router.get('/', async (req, res, next) => {
             return 0
         }
         const sortedEvents = eventsFromDB.sort(sortingEventFuncion);
+        let counter = 0;
         for (let i = 0; i<sortedEvents.length; i++) {
           if (Date.parse(sortedEvents[i].datetime) < Date.now()) {
-            sortedEvents[i].location = "iTalk expired";
+            counter++;
           }
         };
-        res.render('events/events', {events: sortedEvents, user})
+        let ontimeEvents = sortedEvents.slice(0, sortedEvents.length-counter);
+        let expiredEvents = sortedEvents.slice(sortedEvents.length-counter, sortedEvents.length);
+        res.render('events/events', {events: ontimeEvents, expiredEvents, user})
     } catch (error) {
         next(error)
     }
@@ -80,15 +83,15 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 // @access  Private, only event organiser
   router.post('/edit/:eventId', isLoggedIn, async (req, res, next) => {
     const { eventId } = req.params;
-    const { location, datetime, description, language } = req.body;
+    const { location, datetime, description, language, maxAssistants } = req.body;
     try {
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
-      if (user.email === event.organiser.email) {
-      await Event.findByIdAndUpdate(eventId, { location, datetime: datetime.toLocaleString('sp-ES'), description, language });
+      if (user.email === event.organiser.email && maxAssistants <= 8 && (Date.parse(datetime) > Date.now())) {
+      await Event.findByIdAndUpdate(eventId, { location, datetime: datetime.toLocaleString('sp-ES'), description, language, maxAssistants: parseInt(maxAssistants) });
       res.redirect(`/events/${eventId}`); 
     } else {
-        res.redirect('/');
+      res.render('events/edit-event', {error: 'Date should be greater than today and maximus spots are 8', event, user});
       }
     } catch (error) {
       next(error);
@@ -120,10 +123,10 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 router.post('/create', isLoggedIn, async (req, res, next) => {
     const {location, datetime, maxAssistants, description, language } = req.body;
     try {
-        if (Date.parse(datetime) < Date.now()) {
+        if (Date.parse(datetime) < Date.now() || maxAssistants > 8) {
           const user = req.session.currentUser;
           const event = {location, maxAssistants, description, language}
-          res.render('events/new-event', {error: 'Date should be greater than today', event, user});
+          res.render('events/new-event', {error: 'Date should be greater than today and maximus spots are 8', event, user});
         } else {
         await Event.create({location, datetime: datetime.toLocaleString('sp-ES'), maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
         res.redirect('/events')

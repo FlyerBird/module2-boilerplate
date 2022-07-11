@@ -29,5 +29,31 @@
   
 </div>
 
+<div class="expiredEvents">
+  <h1>Expired events</h1>
+
+    {{#each expiredEvents}}
+    <div class="eachEvent">
+<p class="pevent">
+    <a href="/events/{{this._id}}">{{ this.location }}</a>
+</p>
+
+<p>
+    Date / Time: {{this.datetime}}
+</p>
+
+<p>
+    Language: {{this.language}}
+</p>
+
+<p>
+    Organiser: {{this.organiser.fullname}}
+</p>
+    </div>
+  
+{{/each}}
+  
+</div>
+
  
 
