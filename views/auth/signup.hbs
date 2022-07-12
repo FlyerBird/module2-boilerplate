@@ -5,12 +5,15 @@
 <div class="formSignup">
   <form action="/auth/signup" method="POST" enctype="multipart/form-data">
   <h2>¡Create a new account!</h2>
-gu
+
 <div>
-        <input type="file" name="imageProfile" />
+      <label>Select Photo</label>
+      <input type="file" name="imageProfile" value=""/>
+      <input type="file" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
 </div>
 
- <img src="{{imageProfile}}" class="card-img-top" alt="">
+<img src="{{imageProfile}}" class="card-img-top" alt=""> 
+
 
  <div>
       <label>Username</label>

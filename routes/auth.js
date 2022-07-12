@@ -49,6 +49,14 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
     return;
   }
+
+  if (req.file) {
+    imageProfile = req.file.path;
+  } else {
+    imageProfile = imgProfileDefault;
+  }
+
+
   const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
   if (!regexPassword.test(password)) {
       res.render('auth/signup', { error: 'Password must have between 8 and 15 characters, at least one lowercase letter, one uppercase letter, one number and one special character' })
@@ -63,7 +71,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     const userCheck = await User.findOne({ username: username });
     const emailCheck = await User.findOne({email: email});
     if (userCheck) {
-      res.render('auth/signup', { error: "Usename already exists, try with another one" });
+      res.render('auth/signup', { error: "Username already exists, try with another one" });
       return;
     } else if (emailCheck) {
       res.render('auth/login', { error: "Email is registered. Please log in" });
@@ -73,6 +81,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     const hashedPassword = await bcrypt.hash(password, salt);
     const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity, imageProfile: req.file.path});
     res.render('auth/login', user)
+    console.log(user);
     
     }
   } catch (error) {
