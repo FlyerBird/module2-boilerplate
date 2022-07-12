@@ -275,11 +275,16 @@ body {
 }
 
 .eachEvent {
+
+  display: flex;
+  gap: 10px;
+
   padding: 10px;
   border-radius: 20px;
-  background: #FEF8B2;
+  background: white;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
+ 
 }
 
 .eventsDetail{
@@ -302,6 +307,11 @@ body {
   padding: 10px 102px;
   border-radius: 20px;
   border: none;
+}
+
+.dateTime {
+  color: red;
+  font-weight: 700;
 }
 
 .pevent a {

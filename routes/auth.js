@@ -50,9 +50,13 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     return;
   }
 
+  let imageProfile;
+  let imgProfileDefault;
+
   if (req.file) {
     imageProfile = req.file.path;
   } else {
+    
     imageProfile = imgProfileDefault;
   }
 

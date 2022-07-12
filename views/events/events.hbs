@@ -8,34 +8,41 @@
 
     {{#each ontimeEvents}}
     <div class="eachEvent">
-<p class="pevent">
-    <a href="/events/{{this._id}}">{{ this.location }}</a>
-</p>
-
-<p>
-    Date / Time: {{this.datetime}}
-</p>
-
-<p>
-    Language: {{this.language}}
-</p>
-
-<p>
-    Organiser: {{this.organiser.fullname}}
-</p>
 
 <div>
   <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
     {{#if organiser.imageProfile}}
-        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+        <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
         {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"></i>
+        <i style="width: 25px" class="fa-solid fa-user"> </i>
         {{/if}}
 </div>
+
+<div>
+
+<p class="dateTime">
+    {{this.datetime}}
+</p>
+
+<p class="pevent">
+    <a href="/events/{{this._id}}">{{ this.location }} <i class="fa-solid fa-eye"></i></a>
+</p>
+
+
+
+
+<p>
+    Organized by:
+    <br>
+     {{this.organiser.fullname}}
+</p>
 
 <p>
     Available Spots: {{this.availableSpots}}
 </p>
+</div>
+
+
     </div>
   
 {{/each}}
