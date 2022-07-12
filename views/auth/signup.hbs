@@ -1,80 +1,80 @@
 <div class="arrowBack">
-  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
+      <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="formSignup">
-  <form action="/auth/signup" method="POST" enctype="multipart/form-data">
-  <h2>¡Create a new account!</h2>
+      <form action="/auth/signup" method="POST" enctype="multipart/form-data">
+            <h2>¡Create a new account!</h2>
 
-<div>
-      <label>Select Photo</label>
-      <input type="file" name="imageProfile" value=""/>
-      <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
-</div>
+            <div>
+                  <label>Select Photo</label>
+                  <input class="addImg" type="file" name="imageProfile" value="" />
+                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
+            </div>
 
-<img src="{{imageProfile}}" class="card-img-top" alt=""> 
+            <img src="{{imageProfile}}" class="card-img-top" alt="">
 
 
- <div>
-      <label>Username</label>
-      <br>
-      <input type="text" name="username" placeholder="JohnDoe88" />
- </div>
-    
- <div>
-      <label>Email</label>
-      <br>
-      <input type="email" name="email" placeholder="john@doe.com" />
- </div>
-    
-<div>
-      <label>Full Name</label>
-      <br>
-      <input type="text" name="fullname" />
-</div>
-    
-<div>
-      <label>Password</label>
-      <br>
-      <input type="password" name="password" placeholder="********" />
-</div>
-   
-<div>
-      <label>Confirm Password</label>
-      <br>
-      <input type="password" name="confirmPassword" placeholder="********" />
-</div>
-    
-<div>
-      <label>Date of birth</label>
-      <br>
-      <input type="date" name="dateOfBirth"/>
-</div>
+            <div>
+                  <label>Username</label>
+                  <br>
+                  <input type="text" name="username" placeholder="JohnDoe88" />
+            </div>
 
-<div>
-      <label>Living City</label>
-      <br>
-      <input type="text" name="livingCity" />
-</div>
-    
-<div>
-      <label>Languages</label>
-      <br>
-      <select name="languageSkills" multiple>
-            <option value="Spanish">Spanish</option>
-            <option value="English">English</option>
-            <option value="Catalan">Catalan</option>
-            <option value="French">French</option>
-            <option value="Deutsch">Deutsch</option>
-      </select>
+            <div>
+                  <label>Email</label>
+                  <br>
+                  <input type="email" name="email" placeholder="john@doe.com" />
+            </div>
 
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
-</div>
-   
- 
-    <button class="createAccountButton" type="submit">Create account</button>
- 
-  </form>
+            <div>
+                  <label>Full Name</label>
+                  <br>
+                  <input type="text" name="fullname" />
+            </div>
+
+            <div>
+                  <label>Password</label>
+                  <br>
+                  <input type="password" name="password" placeholder="********" />
+            </div>
+
+            <div>
+                  <label>Confirm Password</label>
+                  <br>
+                  <input type="password" name="confirmPassword" placeholder="********" />
+            </div>
+
+            <div>
+                  <label>Date of birth</label>
+                  <br>
+                  <input type="date" name="dateOfBirth" />
+            </div>
+
+            <div>
+                  <label>Living City</label>
+                  <br>
+                  <input type="text" name="livingCity" />
+            </div>
+
+            <div>
+                  <label>Languages</label>
+                  <br>
+                  <select name="languageSkills" multiple>
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                        <option value="Catalan">Catalan</option>
+                        <option value="French">French</option>
+                        <option value="Deutsch">Deutsch</option>
+                  </select>
+
+                  {{#if error}}
+                  <p style="color: red;">{{error}}</p>
+                  {{/if}}
+            </div>
+
+
+            <button class="createAccountButton" type="submit">Create account</button>
+
+      </form>
 </div>
