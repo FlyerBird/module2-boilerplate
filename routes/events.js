@@ -39,6 +39,38 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+router.get('/search/:language', isLoggedIn, async (req, res, next) => {
+  const {language} = req.params;
+  const user = req.session.currentUser;
+  try {
+    const eventsFromDB = await Event.find({'language': language}).populate('organiser');
+    const sortingEventFuncion = (a,b) => {
+      if (a.datetime > b.datetime) {
+        return -1
+      } else if(a.datetime < b.datetime) {
+        return 1
+      }
+      return 0
+  }
+  const sortedEvents = eventsFromDB.sort(sortingEventFuncion);
+  let counter = 0;
+  for (let i = 0; i<sortedEvents.length; i++) {
+    if (Date.parse(sortedEvents[i].datetime) < Date.now()) {
+      counter++;
+    }
+  };
+  sortedEvents.forEach(elem => {
+    elem.availableSpots = `${elem.maxAssistants-elem.participants.length}/${elem.maxAssistants}`;
+    elem.datetime = elem.datetime.replace('T', ' || ');
+  });
+  let ontimeEvents = sortedEvents.slice(0, sortedEvents.length-counter);
+  let expiredEvents = sortedEvents.slice(sortedEvents.length-counter, sortedEvents.length);
+  res.render('events/events', {ontimeEvents, expiredEvents, user})
+  } catch (error) {
+    next(error)
+  }
+});
+
 // @desc    Displays create events form
 // @route   GET /events/create
 // @access  Public
