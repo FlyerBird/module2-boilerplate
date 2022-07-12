@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Jost', sans-serif;
   background-color: var(--primary-yellow);
   
 }
@@ -66,7 +66,7 @@ body {
 }
 
 #iTalk h1 {
-  font-size: 50px;
+  font-size: 70px;
   color: #F2F2F2;
   font-weight: 900;
 }
@@ -251,7 +251,11 @@ body {
   height: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+}
+
+.allEvents h1{
+  font-style: italic;
 }
 
 .allEvents img{
@@ -281,17 +285,21 @@ body {
 .eachEvent {
 
   display: flex;
-  gap: 10px;
+  gap: 20px;
 
   padding: 10px;
   border-radius: 20px;
   background: white;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
-
-             
- 
+  height: 150px
 }
+
+.eachE2{
+  padding: 10px;
+}
+
+
 
 .allEventsExpired{
   padding: 0px 20px;
@@ -300,8 +308,12 @@ body {
   height: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 
+}
+
+.allEventsExpired h1{
+  font-style: italic;
 }
 
 .allEventsExpired img{
@@ -352,13 +364,21 @@ body {
 }
 
 .dateTime {
+  font-size: 20px;
+}
+
+.dateTime a{
   color: red;
-  font-weight: 700;
+}
+
+.pevent{
+  display: flex;
+  gap: 10px;
 }
 
 .pevent a {
-  color: #3D3733;
-  font-weight: 700;
+  color: black;
+  font-size: 20px;
 }
 
 /* USER DETAIL */

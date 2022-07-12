@@ -7,10 +7,10 @@
 <a href="/events/search/French">French</a>
 <a href="/events/search/Deutsch">Deutsch</a>
 <div class="allEvents">
-  <h1>Events</h1>
-{{#unless ontimeEvents}}
-<p>No upcoming events</p>
-{{/unless}}
+    <h1>Events</h1>
+    {{#unless ontimeEvents}}
+    <p>No upcoming events</p>
+    {{/unless}}
     {{#each ontimeEvents}}
     <div class="eachEvent">
 
@@ -23,24 +23,22 @@
             {{/if}}
         </div>
 
-        <div>
+        <div class="eachE2">
 
-            <p class="dateTime">
-                {{this.datetime}}
-            </p>
+            <h2 class="dateTime">
+                <a href="/events/{{this._id}}">{{this.datetime}}</a>
+            </h2>
 
-            <p class="pevent">
-                <a href="/events/{{this._id}}">{{ this.location }} <i class="fa-solid fa-eye"></i></a>
-            </p>
-
+            <h2 class="pevent">
+                <a href="/events/{{this._id}}"><i class="fa-solid fa-location-dot"></i>{{ this.location }}</a>
+            </h2>
 
             <p>
                 Language: {{this.language}}
-            </p>
-
-            <p>
+                <br>
                 Available Spots: {{this.availableSpots}}
             </p>
+
         </div>
 
 
@@ -51,9 +49,9 @@
 
 
 <div class="allEventsExpired">
-    <h1>Expired Events:</h1>
+    <h1>Expired Events</h1>
     {{#unless expiredEvents}}
-        <p>No previous events</p>
+    <p>No previous events</p>
     {{/unless}}
     {{#each expiredEvents}}
     <div class="eachEventExpired">

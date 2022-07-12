@@ -7,41 +7,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href='/stylesheets/style.css' rel="stylesheet" />
   <script src="https://kit.fontawesome.com/da865e606b.js" crossorigin="anonymous"></script>
-
+  <!--
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+-->
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="/stylesheets/style.css" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,300;0,500;0,800;0,900;1,100;1,300;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
 
   <title>iTalk</title>
 </head>
 
 <body>
-  
-    {{{ body }}}
-    <nav class="nav">
-      {{#unless user}}
-      <a href="/auth/signup"><i class="fa-solid fa-user-plus"></i></a>
-      <a href="/auth/login"><i class="fa-solid fa-right-to-bracket"></i></a>
-      <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+  {{{ body }}}
+  <nav class="nav">
+    {{#unless user}}
+    <a href="/auth/signup"><i class="fa-solid fa-user-plus"></i></a>
+    <a href="/auth/login"><i class="fa-solid fa-right-to-bracket"></i></a>
+    <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
+    {{else}}
+    <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
+    <a href="/events/create"><i class="fa-solid fa-calendar-plus"></i></a>
+    <a href="/auth/profile">
+      {{#if user.imageProfile}}
+      <img src="{{ user.imageProfile }}" width="30px" height="30px" alt="imageProfile">
       {{else}}
-      <a href="/events"><i class="fa-solid fa-magnifying-glass"></i></a>
-      <a href="/events/create"><i class="fa-solid fa-calendar-plus"></i></a>
-      <a href="/auth/profile">
-        {{#if user.imageProfile}}
-        <img src="{{ user.imageProfile }}" width="30px" height="30px" alt="imageProfile">
-        {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"></i>
-        {{/if}}
-      </a>
-      {{/unless}}
-    </nav>
+      <i style="width: 25px" class="fa-solid fa-user"></i>
+      {{/if}}
+    </a>
+    {{/unless}}
+  </nav>
   <script src="/js/script.js"></script>
 </body>
 
