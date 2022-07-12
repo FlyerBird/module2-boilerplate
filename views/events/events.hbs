@@ -1,90 +1,85 @@
-
 <div class="arrowBack">
-  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
+    <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="allEvents">
-  <h1>Events</h1>
+    <h1>Events</h1>
 
     {{#each ontimeEvents}}
     <div class="eachEvent">
 
-<div>
-  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
-    {{#if organiser.imageProfile}}
-        <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
-        {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"> </i>
-        {{/if}}
-</div>
+        <div>
+            <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
+            {{#if organiser.imageProfile}}
+            <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+            {{else}}
+            <i style="width: 25px" class="fa-solid fa-user"> </i>
+            {{/if}}
+        </div>
 
-<div>
+        <div>
 
-<p class="dateTime">
-    {{this.datetime}}
-</p>
+            <p class="dateTime">
+                {{this.datetime}}
+            </p>
 
-<p class="pevent">
-    <a href="/events/{{this._id}}">{{ this.location }} <i class="fa-solid fa-eye"></i></a>
-</p>
+            <p class="pevent">
+                <a href="/events/{{this._id}}">{{ this.location }} <i class="fa-solid fa-eye"></i></a>
+            </p>
 
 
-<p>
-    Organized by:
-    <br>
-     {{this.organiser.fullname}}
-</p>
+            <p>
+                Language: {{this.language}}
+            </p>
 
-<p>
-    Available Spots: {{this.availableSpots}}
-</p>
-</div>
+            <p>
+                Available Spots: {{this.availableSpots}}
+            </p>
+        </div>
 
 
     </div>
-  
-{{/each}}
+
+    {{/each}}
 </div>
 
 
-<div class="allEvents">
+<div class="allEventsExpired">
     <h1>Expired Events:</h1>
     {{#each expiredEvents}}
     <div class="eachEventExpired">
 
-<div>
-  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
-    {{#if organiser.imageProfile}}
-        <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
-        {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"></i>
-        {{/if}}
-</div>
 
-<div>
 
-<p class="dateTime">
-    iTalked at {{this.datetime}}
-</p>
+        <div>
+            <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
+            {{#if organiser.imageProfile}}
+            <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+            {{else}}
+            <i style="width: 25px" class="fa-solid fa-user"></i>
+            {{/if}}
+        </div>
 
-<p class="pevent">
-    <a href="/events/{{this._id}}">{{ this.location }}</a>
-</p>
+        <div>
 
-<p>
-    Organiser: {{this.organiser.fullname}}
-</p>
+            <p class="dateTime">
+                iTalked at {{this.datetime}}
+            </p>
 
-</div>
+            <p class="pevent">
+                <a href="/events/{{this._id}}">{{ this.location }}</a>
+            </p>
+
+            <p>
+                Language: {{this.language}}
+            </p>
+
+        </div>
 
 
 
 
     </div>
-  
-{{/each}}
-  </div>
 
-
- 
-
+    {{/each}}
+</div>

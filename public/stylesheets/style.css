@@ -284,8 +284,27 @@ body {
   background: white;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
+
+             
  
 }
+
+.allEventsExpired{
+  padding: 0px 20px;
+  position: relative;
+  top: 40px; 
+  height: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.allEventsExpired img{
+  border-radius: 50%;
+}
+
+
 
 .eachEventExpired{
   display: flex;
@@ -293,11 +312,18 @@ body {
 
   padding: 10px;
   border-radius: 20px;
-  background: white;
-  opacity: 0.5;
+  background-color: white;
+  opacity: 0.7;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
+
+               background-image: url("/images/pngwing.com.png") ;
+               background-size: contain;
+               background-repeat: no-repeat;
+               background-position: center;
+               
 }
+
 
 .eventsDetail{
   padding: 10px 20px;
