@@ -43,7 +43,7 @@ router.get('/profile/edit', isLoggedIn, (req, res, next) => {
 // @route   POST /auth/signup
 // @access  Public
 router.post('/signup', fileUploader.single('imageProfile'), async (req, res, next) => {
-  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity} = req.body;
+  const { email, password, confirmPassword, fullname, username, dateOfBirth, languageSkills, livingCity, imgProfileDefault} = req.body;
   // ⚠️ Add validations!
   if (!email || !password || !confirmPassword || !username || !dateOfBirth || !languageSkills || !fullname || !livingCity) {
     res.render('auth/signup', { error: 'All fields are mandatory. Please fill them before submitting.' })
@@ -51,7 +51,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
   }
 
   let imageProfile;
-  let imgProfileDefault;
+  
 
   if (req.file) {
     imageProfile = req.file.path;
@@ -83,7 +83,7 @@ router.post('/signup', fileUploader.single('imageProfile'), async (req, res, nex
     } else {
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity, imageProfile: req.file.path});
+    const user = await User.create({ username, email, fullname, hashedPassword, dateOfBirth, languageSkills, livingCity, imageProfile});
     res.render('auth/login', user)
     console.log(user);
     

@@ -25,7 +25,7 @@
 
 
 <div>
-  <a href="/events/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
+  <a href="/events/userDetail/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
     {{#if organiser.imageProfile}}
         <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
         {{else}}

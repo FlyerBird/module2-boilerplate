@@ -29,8 +29,6 @@
 </p>
 
 
-
-
 <p>
     Organized by:
     <br>
@@ -52,31 +50,35 @@
 <div class="allEvents">
     <h1>Expired Events:</h1>
     {{#each expiredEvents}}
-    <div class="eachEvent">
-<p class="pevent">
-    <a href="/events/{{this._id}}">{{ this.location }}</a>
-</p>
+    <div class="eachEventExpired">
 
-<p>
+<div>
+  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
+    {{#if organiser.imageProfile}}
+        <img src="{{ organiser.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+        {{else}}
+        <i style="width: 25px" class="fa-solid fa-user"></i>
+        {{/if}}
+</div>
+
+<div>
+
+<p class="dateTime">
     iTalked at {{this.datetime}}
 </p>
 
-<p>
-    Language: {{this.language}}
+<p class="pevent">
+    <a href="/events/{{this._id}}">{{ this.location }}</a>
 </p>
 
 <p>
     Organiser: {{this.organiser.fullname}}
 </p>
 
-<div>
-  <a href="/events/userDetail/{{event.organiser._id}}">{{event.organiser.fullname}}</a>
-    {{#if organiser.imageProfile}}
-        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
-        {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"></i>
-        {{/if}}
 </div>
+
+
+
 
     </div>
   

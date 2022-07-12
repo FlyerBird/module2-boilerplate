@@ -165,6 +165,7 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         const user = req.session.currentUser;
         const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate('organiser participants');
+        console.log(event);
         event.datetime = event.datetime.replace('T', ' || ');
         if (check.email === event.organiser.email) {
         let isEnrolled = true;
