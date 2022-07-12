@@ -1,33 +1,25 @@
-
 <div class="arrowBack">
-  <a href="/events/event-details"><i class="fa-solid fa-circle-arrow-left"></i></a>
+  <a href="/events"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="userDetail">
 
-    {{#if organiser.imageProfile}}
-        <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
-        {{else}}
-        <i style="width: 25px" class="fa-solid fa-user"></i>
-        {{/if}}
+  {{#if organiser.imageProfile}}
+  <img src="{{ organiser.imageProfile }}" width="30px" height="auto" alt="imageProfile">
+  {{else}}
+  <i style="width: 25px" class="fa-solid fa-user"></i>
+  {{/if}}
 
-   <h2>{{organiser.username}} </h2>
+  <h2>{{organiser.username}} </h2>
 
-<div class="userDetail2">
-     <br>
-<h4> Events joined: </h4>  
+  <div class="userDetail2">
+    <br>
+    <h4> Events joined: </h4>
     <ul>
       {{#each events}}
       <li>{{this.location}}</li>
       {{/each}}
     </ul>
-</div>
+  </div>
 
 </div>
-
-
-
-
-
-
-
