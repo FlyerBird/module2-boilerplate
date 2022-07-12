@@ -1,10 +1,16 @@
 <div class="arrowBack">
     <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
-
+<a href="/events/search/Spanish">Spanish</a>
+<a href="/events/search/English">English</a>
+<a href="/events/search/Catalan">Catalan</a>
+<a href="/events/search/French">French</a>
+<a href="/events/search/Deutsch">Deutsch</a>
 <div class="allEvents">
-    <h1>Events</h1>
-
+  <h1>Events</h1>
+{{#unless ontimeEvents}}
+<p>No upcoming events</p>
+{{/unless}}
     {{#each ontimeEvents}}
     <div class="eachEvent">
 
@@ -46,6 +52,9 @@
 
 <div class="allEventsExpired">
     <h1>Expired Events:</h1>
+    {{#unless expiredEvents}}
+        <p>No previous events</p>
+    {{/unless}}
     {{#each expiredEvents}}
     <div class="eachEventExpired">
 
