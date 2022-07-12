@@ -39,6 +39,9 @@ router.get('/', async (req, res, next) => {
     }
 });
 
+// @desc    Displays all events sorted from new to old and sorted by language
+// @route   GET /events/search/:language
+// @access  Private
 router.get('/search/:language', isLoggedIn, async (req, res, next) => {
   const {language} = req.params;
   const user = req.session.currentUser;
@@ -185,7 +188,6 @@ router.post('/:eventId/enroll', isLoggedIn, async (req, res, next) => {
   } catch (error) {
     next(error)
   }
-
 });
 
 // @desc    Displays details of event
@@ -204,8 +206,11 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         res.render('events/event-details', {event, check, user, isEnrolled})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
         } else {
             let isEnrolled = false;
+            if (event.maxAssistants === event.participants.length) {
+              isEnrolled = true;
+            }
             event.participants.forEach(elem => {
-              if (elem.email ===  req.session.currentUser.email) {
+              if (elem.email === req.session.currentUser.email) {
                 isEnrolled = true;
               }
             })
