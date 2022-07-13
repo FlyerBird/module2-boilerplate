@@ -1,13 +1,18 @@
 <div class="arrowBack">
     <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
-<a href="/events/search/Spanish">Spanish</a>
-<a href="/events/search/English">English</a>
-<a href="/events/search/Catalan">Catalan</a>
-<a href="/events/search/French">French</a>
-<a href="/events/search/Deutsch">Deutsch</a>
+
 <div class="allEvents">
     <h1>Events</h1>
+
+    <div class="scrollmenu">
+        <a href="/events/search/Spanish">Spanish</a>
+        <a href="/events/search/English">English</a>
+        <a href="/events/search/Catalan">Catalan</a>
+        <a href="/events/search/French">French</a>
+        <a href="/events/search/Deutsch">Deutsch</a>
+    </div>
+
     {{#unless ontimeEvents}}
     <p>No upcoming events</p>
     {{/unless}}
@@ -30,11 +35,11 @@
             </h2>
 
             <h2 class="pevent">
-                <a href="/events/{{this._id}}"><i class="fa-solid fa-location-dot"></i>{{ this.location }}</a>
+                <a href="/events/{{this._id}}"><i class="fa-solid fa-location-dot"></i>{{ this.location }} Event</a>
             </h2>
 
             <p>
-                Language: {{this.language}}
+                In {{this.language}}
                 <br>
                 Available Spots: {{this.availableSpots}}
             </p>
