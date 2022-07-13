@@ -1,28 +1,31 @@
-
 <div class="arrowBack">
   <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="welcomeUser">
-    <h2>Welcome {{user.username}}</h2>
-    <p>You speak:</p>
-    <ul>
+  <h2>Welcome {{user.username}}</h2>
+  <img src="{{ user.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+
+  <p>You speak:</p>
+  <ul>
     {{#each user.languageSkills}}
     <li>{{this}}</li>
     {{/each}}
-    </ul>
+  </ul>
 
-<div class="profileButtons">
+
+
+  <div class="profileButtons">
     <a class="editProfileButton" href="/auth/profile/edit">Edit your profile</a>
 
-<form class="logoutButton" action="/auth/logout" method="POST">
-  <button type="submit">Logout <i class="fa-solid fa-right-from-bracket"></i></button>
-</form>
+    <form class="logoutButton" action="/auth/logout" method="POST">
+      <button type="submit">Logout <i class="fa-solid fa-right-from-bracket"></i></button>
+    </form>
 
-<form class="deleteAccountButton" action="/auth/delete/confirmation" method="GET">
-  <button type="submit">Delete your account <i class="fa-solid fa-trash"></i></button>
-</form>
+    <form class="deleteAccountButton" action="/auth/delete/confirmation" method="GET">
+      <button type="submit">Delete your account <i class="fa-solid fa-trash"></i></button>
+    </form>
 
-</div>
+  </div>
 
 </div>

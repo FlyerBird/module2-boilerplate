@@ -345,6 +345,24 @@ body {
   padding: 10px 20px;
   position: relative;
   top: 40px;
+  height: 800px;
+}
+
+.eventsDetail h1{
+  font-style: italic;
+}
+
+.eachEventDetail {
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 10px;
+  border-radius: 20px;
+  background: rgb(65, 61, 61);
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
   
 }
 
@@ -363,8 +381,34 @@ body {
   border: none;
 }
 
+.joinDeleteButtons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  
+}
+
+.editButton{
+  display: flex;
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 0px 20px;
+  border-radius: 20px;
+  border: none;
+}
+
+.deleteButton{
+  background-color: #FEF8B2;
+  color: #3D3733;
+  padding: 0px 20px;
+  border-radius: 20px;
+  border: 2px solid #3D3733;
+}
+
 .dateTime {
   font-size: 20px;
+  color: red;
 }
 
 .dateTime a{
@@ -381,12 +425,29 @@ body {
   font-size: 20px;
 }
 
+/**********************************/
+.dateDetail, .languageDetail, .maxDetail, .description, .organiser, .participants {
+
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  background: white;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+
+  justify-content: center;
+  
+}
+
 /* SCROLL MENU */
 div.scrollmenu {
   display: flex;
   overflow: auto;
   white-space: nowrap;
   gap: 20px;
+  /*overflow-x: hidden;*/
+
 }
 
 div.scrollmenu a {
@@ -398,6 +459,7 @@ div.scrollmenu a {
   text-decoration: none;
   border-radius: 20px;
 }
+
 
 /*
 div.scrollmenu a:hover {

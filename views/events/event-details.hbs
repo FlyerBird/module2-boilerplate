@@ -6,53 +6,60 @@
 <div class="eventsDetail">
   <h1>{{event.location}} Event</h1>
 
-  <p>
-    Date / Time: {{event.datetime}}
-  </p>
+  <div class="eachEventDetail">
 
-  <p>
-    Max Assisstants: {{event.maxAssistants}}
-  </p>
+    <div class="dateDetail">
+      <h2 class="dateTime"> {{event.datetime}}</h2>
+    </div>
 
-  <p>
-    Description: {{event.description}}
-  </p>
+    <div class="languageDetail">
+      <p>In {{event.language}}</p>
+    </div>
 
-  <p>
-    Language: {{event.language}}
-  </p>
+    <div class="maxDetail">
+      <p>Max Assisstants: {{event.maxAssistants}}</p>
+    </div>
+
+    <div class="description">
+      <p>Description: <br>
+        {{event.description}}</p>
+    </div>
+
+    <div class="organiser">
+      <a href="/events/userDetail/{{event.organiser._id}}">Organised by {{event.organiser.fullname}}</a>
+      {{#if organiser.imageProfile}}
+      <img src="{{ event.organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
+      {{else}}
+
+      {{/if}}
+    </div>
+
+    <div class="participants">
+      <p>Participants:</p>
+      {{#each event.participants}}
+      <p>{{this.username}}</p>
+      {{/each}}
+    </div>
 
 
-  <div>
-    <a href="/events/userDetail/{{event.organiser._id}}">Organiser:{{event.organiser.fullname}}</a>
-    {{#if organiser.imageProfile}}
-    <img src="{{ organiser.imageProfile }}" width="30px" height="30px" alt="imageProfile">
-    {{else}}
-    <i style="width: 25px" class="fa-solid fa-user"></i>
+    {{#if check}}
+    <div class="joinDeleteButtons">
+      <a class="editButton" href="/events/edit/{{event._id}}">Edit 📝</a>
+      <form method="POST" action="/events/delete/{{event._id}}">
+        <button class="deleteButton" type="submit">Delete 🗑</button>
+      </form>
+    </div>
     {{/if}}
+    {{#unless isEnrolled}}
+    <div class="joinEventButton">
+      <form method="POST" action="/events/{{event._id}}/enroll">
+        <button type="submit">Join Event</button>
+      </form>
+
+    </div>
+    {{/unless}}
   </div>
 
 
-  <p>Participants:</p>
-  {{#each event.participants}}
-  <p>{{this.username}}</p>
-  {{/each}}
-
-  {{#if check}}
-  <div>
-    <a href="/events/edit/{{event._id}}">Edit 📝</a>
-    <form method="POST" action="/events/delete/{{event._id}}">
-      <button type="submit">Delete 🗑</button>
-    </form>
-  </div>
-  {{/if}}
-  {{#unless isEnrolled}}
-  <div class="joinEventButton">
-    <form method="POST" action="/events/{{event._id}}/enroll">
-      <button type="submit">Join Event</button>
-    </form>
-
-  </div>
-  {{/unless}}
 
 </div>
