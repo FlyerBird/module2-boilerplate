@@ -300,36 +300,8 @@ body {
 
 /* EDIT PROFILE */
 
-.editProfileForm{
-  padding: 10px 20px;
-  position: relative;
-  top: 40px; 
-
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-
-  height: 800px;
-}
-
-.editProfileForm form{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.modifyProfileButton{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.modifyProfileButton button{
-  background-color: #3D3733;
-  color: #F2F2F2;
-
-  padding: 10px 80px;
-  border-radius: 20px;
+.containerCSB {
+  padding: 10px 20px 15px 20px;
 }
 
 /* EVENTS */
