@@ -2,34 +2,34 @@
 
 <div id="form">
   <form action="/events/edit/{{event._id}}" method="POST">
- 
+
     <label>Location</label>
-      <input type="text" name="location" value={{event.location}} />
- 
+    <input type="text" name="location" value={{event.location}} />
+
     <label>Date-Time</label>
-      <input type="datetime-local" name="datetime" value={{event.datetime}} />
+    <input type="datetime-local" name="datetime" value={{event.datetime}} />
 
     <label>Description</label>
-      <input type="text" name="description" value={{event.description}} />
+    <input type="text" name="description" value={{event.description}} />
 
     <label>Assisstants</label>
-      <br>
-      <input type="number" name="maxAssistants" value="{{event.maxAssistants}}"/>
+    <br>
+    <input type="number" name="maxAssistants" value="{{event.maxAssistants}}" />
 
     <label>Languages</label>
-      <select name="languageSkills">
-            <option value="Spanish">Spanish</option>
-            <option value="English">English</option>
-            <option value="Catalan">Catalan</option>
-            <option value="French">French</option>
-            <option value="Deutsch">Deutsch</option>
-      </select>
+    <select name="languageSkills">
+      <option value="Spanish">Spanish</option>
+      <option value="English">English</option>
+      <option value="Catalan">Catalan</option>
+      <option value="French">French</option>
+      <option value="Deutsch">Deutsch</option>
+    </select>
 
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
- 
+    {{#if error}}
+    <p style="color: red;">{{error}}</p>
+    {{/if}}
+
     <button type="submit">Edit</button>
- 
+
   </form>
 </div>

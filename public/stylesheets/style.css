@@ -344,7 +344,7 @@ body {
 }
 
 .allEvents h1{
-  font-style: italic;
+  text-align: center;
 }
 
 .allEvents img{
@@ -435,24 +435,21 @@ body {
   position: relative;
   top: 40px;
   height: 800px;
+  
 
-}
-
-.eventsDetail h1{
-  font-style: italic;
- 
 }
 
 .eventdetailh1{
-  padding-left: 40px;
+  text-align: center;
+  z-index: 15;
 }
+
 
 .eachEventDetail {
 
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   padding: 10px;
   border-radius: 20px;
   background: rgb(255, 213, 4);
@@ -525,17 +522,24 @@ body {
 
   display: flex;
   gap: 20px;
-  padding: 10px;
+  padding: 5px;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
 
   justify-content: center;
   
+  
   border: 3px solid #555;
   border-radius: 10px;
   background-color: white;
   
+  
 }
+
+.dateDetail h2, .languageDetail p, .maxDetail p, .description p, .participants p{
+  margin-top: 8px; margin-bottom: 8px;
+}
+
 
 /* SCROLL MENU */
 div.scrollmenu {

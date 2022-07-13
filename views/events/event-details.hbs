@@ -25,8 +25,14 @@
     </div>
 
     <div class="description">
-      <p>Description: <br>
-        {{event.description}}</p>
+      <p>Description: {{event.description}}</p>
+    </div>
+
+    <div class="participants">
+      <p>Participants:</p>
+      {{#each event.participants}}
+      <p>{{this.username}}</p>
+      {{/each}}
     </div>
 
     <div class="organiser">
@@ -36,14 +42,14 @@
       {{else}}
 
       {{/if}}
+
+    </div>
+    <div>
+      <a href="https://www.google.es/maps/@41.6922353,1.7458675,8z"></a>
     </div>
 
-    <div class="participants">
-      <p>Participants:</p>
-      {{#each event.participants}}
-      <p>{{this.username}}</p>
-      {{/each}}
-    </div>
+
+
 
 
     {{#if check}}
