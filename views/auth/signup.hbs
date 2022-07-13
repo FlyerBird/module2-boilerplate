@@ -4,77 +4,68 @@
 
 <div class="formSignup">
       <form action="/auth/signup" method="POST" enctype="multipart/form-data">
-            <h2>¡Create a new account!</h2>
+            <h2 class ="titleCS">Create a new account:</h2>
 
-            <div>
-                  <label>Select Photo</label>
-                  <input class="addImg" type="file" name="imageProfile" value="" />
-                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
+            <div class="containerCS">
+                  <input class="inputEmailC" type="email" name="email" placeholder="Email" />
             </div>
 
-            <img src="{{imageProfile}}" class="card-img-top" alt="">
-
-
-            <div>
-                  <label>Username</label>
-                  <br>
-                  <input type="text" name="username" placeholder="JohnDoe88" />
+            <div class="containerCS">
+                  <input type="text" class="inputUser" name="username" placeholder="Choose your username" />
             </div>
 
-            <div>
-                  <label>Email</label>
-                  <br>
-                  <input type="email" name="email" placeholder="john@doe.com" />
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="password" placeholder="Password" />
             </div>
 
-            <div>
-                  <label>Full Name</label>
-                  <br>
-                  <input type="text" name="fullname" />
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password" />
             </div>
 
-            <div>
-                  <label>Password</label>
-                  <br>
-                  <input type="password" name="password" placeholder="********" />
+            <h5 class="titleCS">Tell us more about you:</h5>
+
+            <h6 class="titleC6">Full name:</h6>
+
+            <div class="containerCS">
+                  <input type="text" class="inputName" name="fullname" placeholder="John Doe" />
             </div>
 
-            <div>
-                  <label>Confirm Password</label>
-                  <br>
-                  <input type="password" name="confirmPassword" placeholder="********" />
+            <h6 class="titleC6">Birth date:</h6>
+
+            <div class="containerCS">
+                  <input type="date" class="inputBD" name="dateOfBirth"/>
             </div>
 
-            <div>
-                  <label>Date of birth</label>
-                  <br>
-                  <input type="date" name="dateOfBirth" />
+            <h6 class="titleC6">Living city:</h6>
+
+            <div class="containerCS">
+                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona"/>
             </div>
 
-            <div>
-                  <label>Living City</label>
-                  <br>
-                  <input type="text" name="livingCity" />
-            </div>
+            <h6 class="titleC6">Select languages you speak or you want to improve:</h6>
 
-            <div>
-                  <label>Languages</label>
-                  <br>
-                  <select name="languageSkills" multiple>
+            <div class="containerCS">
+                  <select class="select" name="languageSkills" multiple>
                         <option value="Spanish">Spanish</option>
                         <option value="English">English</option>
                         <option value="Catalan">Catalan</option>
                         <option value="French">French</option>
                         <option value="Deutsch">Deutsch</option>
                   </select>
-
-                  {{#if error}}
-                  <p style="color: red;">{{error}}</p>
-                  {{/if}}
             </div>
 
+            <h6 class="titleC6">Choose profile pic!</h6>
 
-            <button class="createAccountButton" type="submit">Create account</button>
+            <div class="containerCS">
+                  <input class="addImg" type="file" name="imageProfile" value="" />
+                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
+            </div>
 
+            <div class="containerCS">
+                  <button class="signButton" type="submit">Create account</button>
+            </div>
       </form>
+            {{#if error}}
+            <p style="color: red;">{{error}}</p>
+            {{/if}}
 </div>

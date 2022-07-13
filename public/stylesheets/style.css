@@ -158,22 +158,25 @@ body {
   padding-left: 20px;
 }
 
-/* SIGN UP */
-.formSignup{
-  padding: 0px 20px;
-  height: 1200px;
-}
 
-.formSignup form{
-  height: 480px;
+/* SIGN UP */
+.formSignup {
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  position: relative;
-  top: 40px;
+  align-items: center;
+  margin-bottom: 90px;
 }
 
-.createAccountButton{
+.containerCS {
+  padding: 10px 0px 15px 25px;
+}
+
+.titleCS {
+  padding: 5px 0px 10px 20px;
+}
+
+.signButton {
   background-color: #3D3733;
   color: #F2F2F2;
   padding: 10px 102px;
@@ -181,9 +184,67 @@ body {
   border: none;
 }
 
-.addImg{
-  border-radius: 20px 20px;
+.inputUser {
+  width: 250px;
+  height: 40px;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  background-image: url('/images/username.png');
+  background-position: 5px 5px;
+  background-size: 25px 25px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
 }
+
+.inputName {
+  width: 250px;
+  height: 40px;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  background-image: url('/images/fullname.png');
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  padding-left: 40px;
+}
+
+.titleC6 {
+  padding: 0px 0px 0px 25px;
+}
+
+.inputBD {
+  width: 250px;
+  height: 40px;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  padding-left: 5px;
+}
+
+.inputCity {
+  width: 250px;
+  height: 40px;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  background-image: url('/images/city.png');
+  background-position: 5px 5px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+
+.select {
+  display:flex;
+  text-align: left;
+  width: 100px;
+  height: 60px;
+  border: 3px solid #555;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
 
 /* USER PROFILE */
 
