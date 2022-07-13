@@ -4,7 +4,7 @@
 
 <div class="formSignup">
       <form action="/auth/signup" method="POST" enctype="multipart/form-data">
-            <h2 class ="titleCS">Create a new account:</h2>
+            <h2 class ="titleCS">Create a new account</h2>
 
             <div class="containerCS">
                   <input class="inputEmailC" type="email" name="email" placeholder="Email" />
@@ -24,19 +24,19 @@
 
             <h5 class="titleCS">Tell us more about you:</h5>
 
-            <h6 class="titleC6">Full name:</h6>
+            <h6 class="titleC6">Full name</h6>
 
             <div class="containerCS">
                   <input type="text" class="inputName" name="fullname" placeholder="John Doe" />
             </div>
 
-            <h6 class="titleC6">Birth date:</h6>
+            <h6 class="titleC6">Birth date</h6>
 
             <div class="containerCS">
                   <input type="date" class="inputBD" name="dateOfBirth"/>
             </div>
 
-            <h6 class="titleC6">Living city:</h6>
+            <h6 class="titleC6">Living city</h6>
 
             <div class="containerCS">
                   <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona"/>
@@ -66,6 +66,6 @@
             </div>
       </form>
             {{#if error}}
-            <p style="color: red;">{{error}}</p>
+            <p style="color: red;" class="errorLC">{{error}}</p>
             {{/if}}
 </div>

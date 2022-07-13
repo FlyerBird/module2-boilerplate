@@ -2,60 +2,73 @@
   <a href="/auth/profile"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
-<div class="editProfileForm">
-<h1>Welcome {{ user.fullname }}</h1>
-
+<div class="formSignup">
   <form action="/auth/profile/edit" method="POST" enctype="multipart/form-data">
-    <div>
-          <label>Image Profile</label>
-    <br>
-    <input type="file" name="imageProfile" />
-    <img src="{{imageProfile}}" alt="">
-    </div>
-  
-    <div>
-         <label>User Name</label>
-    <br>
-      <input type="text" name="username" value={{user.username}} />
-    </div>
- 
-    <div>
-        <label>Email</label>
-    <br>
-      <input type="email" name="email" value={{user.email}} />
-    </div>
-  
-    <div>
-      <label>Full Name</label>
-      <br>
-      <input type="text" name="fullname" value={{user.fullname}} />
-    </div>
-    
-    <div>
-      <label>Living City</label>
-      <br>
-    <input type="text" name="livingCity" value={{user.livingCity}} />
-    </div>
-    
-    <div>
-        <label>Languages</label>
-      <select name="languageSkills" multiple>
-            <option value="Spanish">Spanish</option>
-            <option value="English">English</option>
-            <option value="Catalan">Catalan</option>
-            <option value="French">French</option>
-            <option value="Deutsch">Deutsch</option>
-      </select>
-  </div>
+            <h1 class ="titleCS">Edit your profile</h1>
 
+            <div class="containerCS">
+                  <input type="text" class="inputUser" name="username" placeholder="Choose your username" value={{user.username}}>
+            </div>
 
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
- <div class="modifyProfileButton">
-    <button type="submit">Modify profile account</button>
- </div>
-    
- 
-  </form>
+            <div class="containerCS">
+                  <input class="inputEmailC" type="email" name="email" placeholder="Email"  value={{user.email}}>
+            </div>
+
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="password" placeholder="Password" >
+            </div>
+
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password" >
+            </div>
+
+            <h5 class="titleCS">Personal data</h5>
+
+            <h6 class="titleC6">Full name</h6>
+
+            <div class="containerCS">
+                  <input type="text" class="inputName" name="fullname" placeholder="John Doe" value={{user.fullname}}>
+            </div>
+
+            <h6 class="titleC6">Birth date</h6>
+
+            <div class="containerCS">
+                  <input type="date" class="inputBD" name="dateOfBirth" value="{{user.dateOfBirth}}">
+            </div>
+
+            <h6 class="titleC6">Living city</h6>
+
+            <div class="containerCS">
+                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona" value={{user.livingCity}}>
+            </div>
+
+            <h6 class="titleC6">Select languages you speak or you want to improve</h6>
+
+            <div class="containerCS">
+                  <select class="select" name="languageSkills" multiple>
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                        <option value="Catalan">Catalan</option>
+                        <option value="French">French</option>
+                        <option value="Deutsch">Deutsch</option>
+                  </select>
+            </div>
+
+            <h6 class="titleC6">Change profile pic</h6>
+            <div class="containerCS">
+              <img src="{{ user.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+            </div>
+
+            <div class="containerCS">
+                  <input class="addImg" type="file" name="imageProfile" value="" />
+                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
+            </div>
+
+            <div class="containerCSB">
+                  <button class="signButton" type="submit">Modify profile account</button>
+            </div>
+      </form>
+            {{#if error}}
+            <p style="color: red;" class="errorLC">{{error}}</p>
+            {{/if}}
 </div>
