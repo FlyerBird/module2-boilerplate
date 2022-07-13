@@ -4,7 +4,11 @@
 
 
 <div class="eventsDetail">
-  <h1>{{event.location}} Event</h1>
+
+  <div class="eventdetailh1">
+    <h1>{{event.location}} Event</h1>
+  </div>
+
 
   <div class="eachEventDetail">
 
@@ -44,9 +48,9 @@
 
     {{#if check}}
     <div class="joinDeleteButtons">
-      <a class="editButton" href="/events/edit/{{event._id}}">Edit 📝</a>
+      <a class="editButton" href="/events/edit/{{event._id}}">Edit 🖍️</a>
       <form method="POST" action="/events/delete/{{event._id}}">
-        <button class="deleteButton" type="submit">Delete 🗑</button>
+        <button class="deleteButton" type="submit">Delete <i class="fa-solid fa-trash"></i></button>
       </form>
     </div>
     {{/if}}
