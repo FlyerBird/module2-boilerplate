@@ -2,21 +2,73 @@
   <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
-<div class="createEvent">
-<h1>Create new event</h1>
-  <form action="/events/create" method="POST">
 
-    <div>
-      <label>Location</label>
-    <br>
-    <input type="text" name="location" placeholder="Presential/Online" {{#if event}} value="{{event.location}}"{{/if}} />
-    </div>
-    
-    <div>
-        <label>Date & Time</label>
-    <br>
-    <input type="datetime-local" name="datetime" placeholder="" />
-    </div>
+<div class="formSignup">
+        <form action="/events/create" method="POST" enctype="multipart/form-data">
+            <h2 class ="titleCS">Create a new event</h2>
+
+            <div class="containerCS">
+                  <input type="text" class="inputCity" name="location" placeholder="Presential/Online"/>
+            </div>
+
+            <h6 class="titleC6">Date & Time</h6>
+
+              <div class="containerCS">
+                  <input type="date" class="inputBD" name="datetime"/>
+            </div>
+
+            <div class="containerCS">
+                  <input class="inputEmailC" type="email" name="email" placeholder="Email" />
+            </div>
+
+            <div class="containerCS">
+                  <input type="text" class="inputUser" name="username" placeholder="Choose your username" />
+            </div>
+
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="password" placeholder="Password" />
+            </div>
+
+            <div class="containerCS">
+                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password" />
+            </div>
+
+            <h5 class="titleCS">Tell us more about you:</h5>
+
+
+
+            <div class="containerCS">
+                  <input type="text" class="inputName" name="fullname" placeholder="John Doe" />
+            </div>
+
+            <h6 class="titleC6">Select languages you speak or you want to improve:</h6>
+
+            <div class="containerCS">
+                  <select class="select" name="languageSkills" multiple>
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                        <option value="Catalan">Catalan</option>
+                        <option value="French">French</option>
+                        <option value="Deutsch">Deutsch</option>
+                  </select>
+            </div>
+
+            <h6 class="titleC6">Choose profile pic!</h6>
+
+            <div class="containerCS">
+                  <input class="addImg" type="file" name="imageProfile" value="" />
+                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
+            </div>
+
+            <div class="containerCS">
+                  <button class="signButton" type="submit">Create account</button>
+            </div>
+      </form>
+            {{#if error}}
+            <p style="color: red;" class="errorLC">{{error}}</p>
+            {{/if}}
+</div>
+
     
     <div>
       <label>Assisstants</label>
@@ -31,7 +83,7 @@
     </div>
     
   <div>
-      <label>Languages</label>
+      <label>Language</label>
       <br>
       <select name="language">
             <option value="Spanish">Spanish</option>

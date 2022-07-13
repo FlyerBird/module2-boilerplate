@@ -29,7 +29,7 @@ router.get('/', async (req, res, next) => {
         };
         sortedEvents.forEach(elem => {
           elem.availableSpots = `${elem.maxAssistants-elem.participants.length}/${elem.maxAssistants}`;
-          elem.datetime = elem.datetime.replace('T', ' || ');
+          elem.datetime = elem.datetime.replace('T', ' at ');
         });
         let ontimeEvents = sortedEvents.slice(0, sortedEvents.length-counter);
         let expiredEvents = sortedEvents.slice(sortedEvents.length-counter, sortedEvents.length);
@@ -64,7 +64,7 @@ router.get('/search/:language', isLoggedIn, async (req, res, next) => {
   };
   sortedEvents.forEach(elem => {
     elem.availableSpots = `${elem.maxAssistants-elem.participants.length}/${elem.maxAssistants}`;
-    elem.datetime = elem.datetime.replace('T', ' || ');
+    elem.datetime = elem.datetime.replace('T', ' at ');
   });
   let ontimeEvents = sortedEvents.slice(0, sortedEvents.length-counter);
   let expiredEvents = sortedEvents.slice(sortedEvents.length-counter, sortedEvents.length);
@@ -199,11 +199,10 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         const user = req.session.currentUser;
         const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate('organiser participants');
-        console.log(event);
-        event.datetime = event.datetime.replace('T', ' || ');
+        event.datetime = event.datetime.replace('T', ' at ');
         if (check.email === event.organiser.email) {
         let isEnrolled = true;
-        res.render('events/event-details', {event, check, user, isEnrolled})//aqui Carlos le paso el user para que en la vista de detalle puedas poner el if user enseña el boton de editar y eliminar
+        res.render('events/event-details', {event, check, user, isEnrolled})
         } else {
             let isEnrolled = false;
             if (event.maxAssistants === event.participants.length) {
