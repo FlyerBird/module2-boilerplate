@@ -6,30 +6,18 @@
 <div class="formLogin">
   <form action="/auth/login" method="POST">
  
-  <h2>Welcome Back!</h2>
+  <h2 class="titleC">Welcome back!</h2>
 
- <div>
-    <label>Email</label>
-    <br>
-    <input type="email" name="email" placeholder="john@doe.com" />
+ <div class="containerC">
+    <input class="inputEmailC" type="email" name="email" placeholder="Email" />
  </div>
   
-<div>
-   <label>Password</label>
-    <br>
-    <input type="password" name="password" placeholder="********" />
+<div class="containerC">
+    <input class="inputC" type="password" name="password" placeholder="Password" />
 </div>
-   
-<div>
-    <label>Remember me</label>
-    <input type="radio" name="rememberMe" />
-    {{#if error}}
-    <p style="color:rgb(218, 90, 90)">{{ error }}</p>
-    {{/if}}
-</div>
-  
-    
     <button type="submit" class="loginButton">Login</button>
-
   </form>
+    {{#if error}}
+    <p style="color:rgb(218, 90, 90)" class="errorLC">{{ error }}</p>
+    {{/if}}
 </div>
