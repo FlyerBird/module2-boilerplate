@@ -1,11 +1,11 @@
 <div class="arrowBack">
-  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
+      <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 
 <div class="formSignup">
-        <form action="/events/create" method="POST" enctype="multipart/form-data">
-            <h2 class ="titleCS">Create a new event</h2>
+      <form action="/events/create" method="POST" enctype="multipart/form-data">
+            <h2 class="titleCS">Create a new event</h2>
 
             <div class="containerCS">
                   <input type="text" class="inputCity" name="location" placeholder="Set your spot / Online"/>
@@ -45,7 +45,7 @@
                   <button class="signButton" type="submit">Post event</button>
             </div>
       </form>
-            {{#if error}}
-            <p style="color: red;" class="errorLC">{{error}}</p>
-            {{/if}}
+      {{#if error}}
+      <p style="color: red;" class="errorLC">{{error}}</p>
+      {{/if}}
 </div>

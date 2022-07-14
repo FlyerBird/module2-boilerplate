@@ -255,8 +255,43 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
+  align-items: center;
+  height: 700px;
 }
+
+.welcomeUser h2{
+  margin-bottom: 20px;
+}
+
+.welcomeUser img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.welcomeUser ul li{
+  list-style: square;
+}
+
+.wUserImgUl{
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+
+
+  text-align: center;
+  align-items: center;
+  
+  flex-direction: column;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+}
+
 
 .profileButtons {
   display: flex;
@@ -316,7 +351,7 @@ body {
 }
 
 .allEvents h1{
-  font-style: italic;
+  text-align: center;
 }
 
 .allEvents img{
@@ -407,24 +442,21 @@ body {
   position: relative;
   top: 40px;
   height: 800px;
+  
 
-}
-
-.eventsDetail h1{
-  font-style: italic;
- 
 }
 
 .eventdetailh1{
-  padding-left: 40px;
+  text-align: center;
+  z-index: 15;
 }
+
 
 .eachEventDetail {
 
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   padding: 10px;
   border-radius: 20px;
   background: rgb(255, 213, 4);
@@ -497,17 +529,24 @@ body {
 
   display: flex;
   gap: 20px;
-  padding: 10px;
+  padding: 5px;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
 
   justify-content: center;
   
+  
   border: 3px solid #555;
   border-radius: 10px;
   background-color: white;
   
+  
 }
+
+.dateDetail h2, .languageDetail p, .maxDetail p, .description p, .participants p{
+  margin-top: 8px; margin-bottom: 8px;
+}
+
 
 /* SCROLL MENU */
 div.scrollmenu {
@@ -539,18 +578,36 @@ div.scrollmenu a:hover {
 /* USER DETAIL */
 
 .userDetail{
-  padding: 0px 20px;
+  padding: 40px 20px;
   position: relative;
   top: 40px; 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  
+  gap: 20px;
+  padding: 5px;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+
+  justify-content: center;
+  
+  
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .userDetail img{
-  width: 150px;
-  height: auto;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
+  margin-top: 20px;
 }
 
 .userDetail2{

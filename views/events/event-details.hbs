@@ -25,8 +25,14 @@
     </div>
 
     <div class="description">
-      <p>Description: <br>
-        {{event.description}}</p>
+      <p>Description: {{event.description}}</p>
+    </div>
+
+    <div class="participants">
+      <p>Participants:</p>
+      {{#each event.participants}}
+      <p>{{this.username}}</p>
+      {{/each}}
     </div>
 
     <div class="organiser">
@@ -36,14 +42,12 @@
       {{else}}
 
       {{/if}}
+
     </div>
 
-    <div class="participants">
-      <p>Participants:</p>
-      {{#each event.participants}}
-      <p>{{this.username}}</p>
-      {{/each}}
-    </div>
+
+
+
 
 
     {{#if check}}
