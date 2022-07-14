@@ -1,35 +1,50 @@
-<h1>Edit your Event</h1>
+<div class="arrowBack">
+      <a href="/events"><i class="fa-solid fa-circle-arrow-left"></i></a>
+</div>
 
-<div id="form">
-  <form action="/events/edit/{{event._id}}" method="POST">
+<div class="formSignup">
+      <form action="/events/edit/{{event._id}}" method="POST">
+            <h2 class="titleCS">Edit your event</h2>
 
-    <label>Location</label>
-    <input type="text" name="location" value={{event.location}} />
+            <div class="containerCS">
+                  <input type="text" class="inputCity" name="location" value={{event.location}}>
+            </div>
 
-    <label>Date-Time</label>
-    <input type="datetime-local" name="datetime" value={{event.datetime}} />
+            <h6 class="titleC6">Date & Time</h6>
 
-    <label>Description</label>
-    <input type="text" name="description" value={{event.description}} />
+            <div class="containerCS">
+                  <input type="datetime-local" class="inputBD" name="datetime" value={{event.datetime}}>
+            </div>
 
-    <label>Assisstants</label>
-    <br>
-    <input type="number" name="maxAssistants" value="{{event.maxAssistants}}" />
+            <h6 class="titleC6">Max Assisstants</h6>
 
-    <label>Languages</label>
-    <select name="languageSkills">
-      <option value="Spanish">Spanish</option>
-      <option value="English">English</option>
-      <option value="Catalan">Catalan</option>
-      <option value="French">French</option>
-      <option value="Deutsch">Deutsch</option>
-    </select>
+            <div class="containerCS">
+                  <input class="inputUsersC" type="number" name="maxAssistants" value={{event.maxAssistants}}>
+            </div>
 
-    {{#if error}}
-    <p style="color: red;">{{error}}</p>
-    {{/if}}
+            <h6 class="titleC6">Event Description</h6>
 
-    <button type="submit">Edit</button>
+            <div class="containerCS">
+                  <input type="text" class="inputUser" name="description"  value={{event.description}}>
+            </div>
 
-  </form>
+            <h6 class="titleC6">Select language for event</h6>
+
+            <div class="containerCS">
+                  <select class="select" name="language"/>
+                        <option value="Spanish">Spanish</option>
+                        <option value="English">English</option>
+                        <option value="Catalan">Catalan</option>
+                        <option value="French">French</option>
+                        <option value="Deutsch">Deutsch</option>
+                  </select>
+            </div>
+
+            <div class="containerCSB">
+                  <button class="createButton" type="submit">Edit event</button>
+            </div>
+      </form>
+      {{#if error}}
+      <p style="color: red;" class="errorLC">{{error}}</p>
+      {{/if}}
 </div>
