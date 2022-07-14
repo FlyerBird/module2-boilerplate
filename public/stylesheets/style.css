@@ -255,8 +255,43 @@ body {
 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0px;
+  align-items: center;
+  height: 700px;
 }
+
+.welcomeUser h2{
+  margin-bottom: 20px;
+}
+
+.welcomeUser img{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.welcomeUser ul li{
+  list-style: square;
+}
+
+.wUserImgUl{
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+
+
+  text-align: center;
+  align-items: center;
+  
+  flex-direction: column;
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+}
+
 
 .profileButtons {
   display: flex;
