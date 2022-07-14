@@ -1,20 +1,20 @@
 <div class="arrowBack">
-  <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
+      <a href="/"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 
 <div class="formSignup">
-        <form action="/events/create" method="POST" enctype="multipart/form-data">
-            <h2 class ="titleCS">Create a new event</h2>
+      <form action="/events/create" method="POST" enctype="multipart/form-data">
+            <h2 class="titleCS">Create a new event</h2>
 
             <div class="containerCS">
-                  <input type="text" class="inputCity" name="location" placeholder="Presential/Online"/>
+                  <input type="text" class="inputCity" name="location" placeholder="Presential/Online" />
             </div>
 
             <h6 class="titleC6">Date & Time</h6>
 
-              <div class="containerCS">
-                  <input type="date" class="inputBD" name="datetime"/>
+            <div class="containerCS">
+                  <input type="date" class="inputBD" name="datetime" />
             </div>
 
             <div class="containerCS">
@@ -64,25 +64,25 @@
                   <button class="signButton" type="submit">Create account</button>
             </div>
       </form>
-            {{#if error}}
-            <p style="color: red;" class="errorLC">{{error}}</p>
-            {{/if}}
+      {{#if error}}
+      <p style="color: red;" class="errorLC">{{error}}</p>
+      {{/if}}
 </div>
 
-    
-    <div>
+
+<div>
       <label>Assisstants</label>
       <br>
-      <input type="number" name="maxAssistants" {{#if event}} value="{{event.maxAssistants}}"{{/if}}/>
-    </div>
-    
-    <div>
+      <input type="number" name="maxAssistants" {{#if event}} value="{{event.maxAssistants}}" {{/if}} />
+</div>
+
+<div>
       <label>Description</label>
       <br>
-      <input type="text" name="description" {{#if event}} value="{{event.description}}"{{/if}}/>
-    </div>
-    
-  <div>
+      <input type="text" name="description" {{#if event}} value="{{event.description}}" {{/if}} />
+</div>
+
+<div>
       <label>Language</label>
       <br>
       <select name="language">
@@ -96,10 +96,10 @@
       {{#if error}}
       <p style="color: red;">{{error}}</p>
       {{/if}}
-  </div>
-   
- 
-    <button type="submit">Create Event</button>
- 
-  </form>
+</div>
+
+
+<button type="submit">Create Event</button>
+
+</form>
 </div>

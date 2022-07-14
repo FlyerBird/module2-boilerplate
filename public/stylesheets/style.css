@@ -578,18 +578,36 @@ div.scrollmenu a:hover {
 /* USER DETAIL */
 
 .userDetail{
-  padding: 0px 20px;
+  padding: 40px 20px;
   position: relative;
   top: 40px; 
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  
+  gap: 20px;
+  padding: 5px;
+  box-shadow:  10px 10px 50px #afab7b,
+               -10px -10px 50px #ffffe9;
+
+  justify-content: center;
+  
+  
+  border: 3px solid #555;
+  border-radius: 10px;
+  background-color: white;
+
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 .userDetail img{
-  width: 150px;
-  height: auto;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
+  margin-top: 20px;
 }
 
 .userDetail2{
