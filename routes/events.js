@@ -91,6 +91,7 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 
       const user = req.session.currentUser;
       const event = await Event.findById(eventId).populate('organiser');
+      console.log(event.location);
       if (user.email === event.organiser.email) {
       res.render('events/edit-event', {event, user})
       } else {
