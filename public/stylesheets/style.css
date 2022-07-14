@@ -19,16 +19,18 @@ body {
 }
 
 .imageIndex {
-  height: 90vh;
+  height: 95vh;
   width: 100%;
   background-repeat: no-repeat;
-  background-image: url('https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80')
+  background-image: url('https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80');
+  background-size: cover;
 }
 
 .iconIndex {
   display: flex;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-top: 350px;
+  color: white;
 }
 
 /* LAYOUT AND INDEX */
@@ -91,6 +93,7 @@ body {
   font-size: 18px;
   position: relative;
   bottom: 50px;
+  margin-top: 50px;
 }
 
 /* LOG IN */
@@ -293,11 +296,21 @@ body {
   flex-direction: column;
   gap: 0px;
   align-items: center;
-  height: 700px;
+  height: 750px;
+}
+
+.welcomeUserPH2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .welcomeUser h2{
   margin-bottom: 20px;
+}
+
+.welcomeUser p{
+  width: 50px;
 }
 
 .welcomeUser img{
@@ -662,6 +675,12 @@ div.scrollmenu a:hover {
 display: flex;
 flex-direction: column;
 }
+
+.userDetail2 ul{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  }
 
 .userDetail2 ul li{
   list-style: square;

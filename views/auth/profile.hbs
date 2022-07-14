@@ -3,13 +3,17 @@
 </div>
 
 <div class="welcomeUser">
-  <h2>👋 {{user.username}}</h2>
+  <div class="welcomeUserPH2">
+    <h5>Hello iTalker</h5>
+    <h4>{{user.username}}</h4>
+  </div>
+
 
 
   <div class="wUserImgUl">
     <img src="{{ user.imageProfile }}" width="60px" height="60px" alt="imageProfile">
 
-    <h5>Languages you speak🌍</h5>
+    <h5>Spoken Languages🌍</h5>
 
     <ul>
       {{#each user.languageSkills}}

@@ -6,7 +6,7 @@
 <div class="eventsDetail">
 
   <div class="eventdetailh1">
-    <h1>{{event.location}} Event</h1>
+    <h1>{{event.location}}</h1>
   </div>
 
 
@@ -62,7 +62,7 @@
     </div>
     {{/unless}}
     {{#if isEnrolled}}
-        <div class="joinEventButton">
+    <div class="joinEventButton">
       <form method="POST" action="/events/{{event._id}}/unroll">
         <button type="submit">Do not assist</button>
       </form>
