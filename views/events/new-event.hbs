@@ -8,43 +8,31 @@
             <h2 class ="titleCS">Create a new event</h2>
 
             <div class="containerCS">
-                  <input type="text" class="inputCity" name="location" placeholder="Presential/Online"/>
+                  <input type="text" class="inputCity" name="location" placeholder="Set your spot / Online"/>
             </div>
 
             <h6 class="titleC6">Date & Time</h6>
 
-              <div class="containerCS">
+            <div class="containerCS">
                   <input type="date" class="inputBD" name="datetime"/>
             </div>
 
+            <h6 class="titleC6">Max Assisstants</h6>
+
             <div class="containerCS">
-                  <input class="inputEmailC" type="email" name="email" placeholder="Email" />
+                  <input class="inputEmailC" type="number" name="maxAssistants" placeholder="2 - 8" />
             </div>
 
+            <h6 class="titleC6">Event Description</h6>
+
             <div class="containerCS">
-                  <input type="text" class="inputUser" name="username" placeholder="Choose your username" />
+                  <input type="text" class="inputUser" name="description" placeholder="Description" />
             </div>
 
-            <div class="containerCS">
-                  <input class="inputC" type="password" name="password" placeholder="Password" />
-            </div>
+            <h6 class="titleC6">Select language for event:</h6>
 
             <div class="containerCS">
-                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password" />
-            </div>
-
-            <h5 class="titleCS">Tell us more about you:</h5>
-
-
-
-            <div class="containerCS">
-                  <input type="text" class="inputName" name="fullname" placeholder="John Doe" />
-            </div>
-
-            <h6 class="titleC6">Select languages you speak or you want to improve:</h6>
-
-            <div class="containerCS">
-                  <select class="select" name="languageSkills" multiple>
+                  <select class="select" name="language">
                         <option value="Spanish">Spanish</option>
                         <option value="English">English</option>
                         <option value="Catalan">Catalan</option>
@@ -53,53 +41,11 @@
                   </select>
             </div>
 
-            <h6 class="titleC6">Choose profile pic!</h6>
-
             <div class="containerCS">
-                  <input class="addImg" type="file" name="imageProfile" value="" />
-                  <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
-            </div>
-
-            <div class="containerCS">
-                  <button class="signButton" type="submit">Create account</button>
+                  <button class="signButton" type="submit">Post event</button>
             </div>
       </form>
             {{#if error}}
             <p style="color: red;" class="errorLC">{{error}}</p>
             {{/if}}
-</div>
-
-    
-    <div>
-      <label>Assisstants</label>
-      <br>
-      <input type="number" name="maxAssistants" {{#if event}} value="{{event.maxAssistants}}"{{/if}}/>
-    </div>
-    
-    <div>
-      <label>Description</label>
-      <br>
-      <input type="text" name="description" {{#if event}} value="{{event.description}}"{{/if}}/>
-    </div>
-    
-  <div>
-      <label>Language</label>
-      <br>
-      <select name="language">
-            <option value="Spanish">Spanish</option>
-            <option value="English">English</option>
-            <option value="Catalan">Catalan</option>
-            <option value="French">French</option>
-            <option value="Deutsch">Deutsch</option>
-      </select>
-
-      {{#if error}}
-      <p style="color: red;">{{error}}</p>
-      {{/if}}
-  </div>
-   
- 
-    <button type="submit">Create Event</button>
- 
-  </form>
 </div>
