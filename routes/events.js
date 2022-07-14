@@ -117,6 +117,14 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
    
   });
 
+// @desc    Displays map with events
+// @route   GET /events/map
+// @access  Public
+  router.get('/map', async (req,res,next) => {
+    const user = req.session.currentUser;
+    res.render('events/map', {user});
+  })
+
 // @desc    Edits events form only for oganiser
 // @route   POST /events/edit/eventId
 // @access  Private, only event organiser
