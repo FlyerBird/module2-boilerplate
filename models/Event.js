@@ -34,6 +34,9 @@ const eventSchema = new Schema(
     },
     availableSpots: {
         type: String,
+    },
+    link: {
+        type: String,
     }
   },
   {

@@ -227,6 +227,9 @@ router.get('/:eventId', isLoggedIn, async (req, res, next) => {
         const check = req.session.currentUser;
         const event = await Event.findById(eventId).populate('organiser participants');
         event.datetime = event.datetime.replace('T', ' at ');
+        if (event.location === 'online' || event.location === 'Online') {
+            event.link = 'https://meet.google.com/aug-jyzj-vvu';
+          } 
         if (check.email === event.organiser.email) {
         let isEnrolled = true;
         res.render('events/event-details', {event, check, user, isEnrolled})

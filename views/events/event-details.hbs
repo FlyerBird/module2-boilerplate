@@ -15,7 +15,11 @@
     <div class="dateDetail">
       <h2 class="dateTime"> {{event.datetime}}</h2>
     </div>
-
+    {{#if event.link}}
+    <div class="languageDetail">
+      <p>Google Meet: <a href="{{event.link}}">LINK</a> </p>
+    </div>
+    {{/if}}
     <div class="languageDetail">
       <p>{{event.language}}</p>
     </div>
