@@ -265,8 +265,12 @@ body {
   border: none;
 }
 
-.containerCSB {
-  padding: 10px 15px 15px 25px;
+.containerCSE {
+  padding: 5px 40px 15px 15px;
+}
+
+.containerCSEB {
+  padding: 5px 40px 17px 35px;
 }
 
 .inputUsersC {
