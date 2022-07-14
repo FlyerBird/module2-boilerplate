@@ -564,11 +564,11 @@ body {
 
 .dateTime {
   font-size: 20px;
-  color: red;
+ 
 }
 
 .dateTime a{
-  color: red;
+  color: rgb(128, 114, 114);
 }
 
 .pevent{
