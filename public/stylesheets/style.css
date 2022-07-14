@@ -10,7 +10,7 @@ body {
   box-sizing: border-box;
   font-family: 'Jost', sans-serif;
   background-color: var(--primary-yellow);
-  
+  margin-bottom: 100px;
 }
 
 
@@ -303,6 +303,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .welcomeUser h2{
@@ -402,10 +403,8 @@ body {
 
 /* EVENTS */
 .allEvents{
-  padding: 0px 20px;
-  position: relative;
+  padding: 10px 20px;
   top: 40px; 
-  height: 1000px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -460,17 +459,14 @@ body {
 
 .allEventsExpired{
   padding: 0px 20px;
-  position: relative;
-  top: 40px; 
-  height: 1000px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-
+  margin: 50px 0;
 }
 
 .allEventsExpired h1{
-  font-style: italic;
+  text-align: center;
 }
 
 .allEventsExpired img{
@@ -612,7 +608,7 @@ body {
 /* SCROLL MENU */
 div.scrollmenu {
   display: flex;
-  overflow: auto;
+ overflow-x: scroll;
   white-space: nowrap;
   gap: 20px;
   /*overflow-x: hidden;*/
@@ -628,6 +624,10 @@ div.scrollmenu a {
   text-decoration: none;
   border-radius: 20px;
 }
+
+
+
+
 
 
 /*
