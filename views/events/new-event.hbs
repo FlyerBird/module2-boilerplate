@@ -4,35 +4,35 @@
 
 
 <div class="formSignup">
-      <form action="/events/create" method="POST" enctype="multipart/form-data">
+      <form action="/events/create" method="POST">
             <h2 class="titleCS">Create a new event</h2>
 
             <div class="containerCS">
-                  <input type="text" class="inputCity" name="location" placeholder="Set your spot / Online"/>
+                  <input type="text" class="inputCity" name="location" placeholder="Pick your spot / Online"{{#if event}}value="{{event.location}}"{{/if}}/>
             </div>
 
             <h6 class="titleC6">Date & Time</h6>
 
             <div class="containerCS">
-                  <input type="date" class="inputBD" name="datetime"/>
+                  <input type="datetime-local" class="inputBD" name="datetime"/>
             </div>
 
             <h6 class="titleC6">Max Assisstants</h6>
 
             <div class="containerCS">
-                  <input class="inputEmailC" type="number" name="maxAssistants" placeholder="2 - 8" />
+                  <input class="inputEmailC" type="number" name="maxAssistants" placeholder="2 - 8"/>
             </div>
 
             <h6 class="titleC6">Event Description</h6>
 
             <div class="containerCS">
-                  <input type="text" class="inputUser" name="description" placeholder="Description" />
+                  <input type="text" class="inputUser" name="description" placeholder="Description"/>
             </div>
 
-            <h6 class="titleC6">Select language for event:</h6>
+            <h6 class="titleC6">Select language for event</h6>
 
             <div class="containerCS">
-                  <select class="select" name="language">
+                  <select class="select" name="language"/>
                         <option value="Spanish">Spanish</option>
                         <option value="English">English</option>
                         <option value="Catalan">Catalan</option>

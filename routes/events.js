@@ -161,16 +161,21 @@ router.get('/edit/:eventId', isLoggedIn, async (req, res, next) => {
 // @access  Private
 router.post('/create', isLoggedIn, async (req, res, next) => {
     const {location, datetime, maxAssistants, description, language } = req.body;
+    const user = req.session.currentUser;
+    if (!location || !datetime || !maxAssistants || !description || !language) {
+      res.render('events/new-event'), {error: 'All fields are mandatory', user }
+    }
     try {
         if (Date.parse(datetime) < Date.now() || maxAssistants > 8) {
           const user = req.session.currentUser;
           const event = {location, maxAssistants, description, language}
-          res.render('events/new-event', {error: 'Date should be greater than today and maximus spots are 8', event, user});
+          res.render('events/new-event', {error: 'Date should be greater than today and max spots are 8', event, user});
         } else {
         await Event.create({location, datetime: datetime.toLocaleString('sp-ES'), maxAssistants: parseInt(maxAssistants), description, language, participants: [req.session.currentUser._id], organiser: req.session.currentUser._id});
         res.redirect('/events')
         }
     } catch (error) {
+        console.log(error);
         res.render('events/new-event');
         next(error);
     }
