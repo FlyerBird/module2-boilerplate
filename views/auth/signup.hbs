@@ -4,7 +4,7 @@
 
 <div class="formSignup">
       <form action="/auth/signup" method="POST" enctype="multipart/form-data">
-            <h2 class ="titleCS">Create a new account</h2>
+            <h2 class="titleCS">Create a new account</h2>
 
             <div class="containerCS">
                   <input class="inputEmailC" type="email" name="email" placeholder="Email" />
@@ -33,13 +33,13 @@
             <h6 class="titleC6">Birth date</h6>
 
             <div class="containerCS">
-                  <input type="date" class="inputBD" name="dateOfBirth"/>
+                  <input type="date" class="inputBD" name="dateOfBirth" />
             </div>
 
             <h6 class="titleC6">Living city</h6>
 
             <div class="containerCS">
-                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona"/>
+                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona" />
             </div>
 
             <h6 class="titleC6">Select languages you speak or you want to improve:</h6>
@@ -54,18 +54,22 @@
                   </select>
             </div>
 
-            <h6 class="titleC6">Choose profile pic!</h6>
+
+
 
             <div class="containerCS">
-                  <input class="addImg" type="file" name="imageProfile" value="" />
+                  <label for="addImg" id="custom-file-upload"></label>
+                  <input id="addImg" type="file" name="imageProfile" value="" />
                   <input type="string" name="imgProfileDefault" hidden value="/images/ProfilePNG.png">
             </div>
+
+            <h6 class="titleC6"><i class="fa-solid fa-upload" id="upload-icon-signup"></i>Choose profile pic!</h6>
 
             <div class="containerCS">
                   <button class="signButton" type="submit">Create account</button>
             </div>
       </form>
-            {{#if error}}
-            <p style="color: red;" class="errorLC">{{error}}</p>
-            {{/if}}
+      {{#if error}}
+      <p style="color: red;" class="errorLC">{{error}}</p>
+      {{/if}}
 </div>

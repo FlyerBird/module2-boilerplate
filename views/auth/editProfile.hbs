@@ -1,25 +1,26 @@
 <div class="arrowBack">
-  <a href="/auth/profile"><i class="fa-solid fa-circle-arrow-left"></i></a>
+      <a href="/auth/profile"><i class="fa-solid fa-circle-arrow-left"></i></a>
 </div>
 
 <div class="formSignup">
-  <form action="/auth/profile/edit" method="POST" enctype="multipart/form-data">
-            <h1 class ="titleCS">Edit your profile</h1>
+      <form action="/auth/profile/edit" method="POST" enctype="multipart/form-data">
+            <h1 class="titleCS">Edit your profile</h1>
 
             <div class="containerCS">
-                  <input type="text" class="inputUser" name="username" placeholder="Choose your username" value={{user.username}}>
+                  <input type="text" class="inputUser" name="username" placeholder="Choose your username"
+                        value={{user.username}}>
             </div>
 
             <div class="containerCS">
-                  <input class="inputEmailC" type="email" name="email" placeholder="Email"  value={{user.email}}>
+                  <input class="inputEmailC" type="email" name="email" placeholder="Email" value={{user.email}}>
             </div>
 
             <div class="containerCS">
-                  <input class="inputC" type="password" name="password" placeholder="Password" >
+                  <input class="inputC" type="password" name="password" placeholder="Password">
             </div>
 
             <div class="containerCS">
-                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password" >
+                  <input class="inputC" type="password" name="confirmPassword" placeholder="Confirm password">
             </div>
 
             <h5 class="titleCS">Personal data</h5>
@@ -39,7 +40,8 @@
             <h6 class="titleC6">Living city</h6>
 
             <div class="containerCS">
-                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona" value={{user.livingCity}}>
+                  <input type="text" class="inputCity" name="livingCity" placeholder="Barcelona"
+                        value={{user.livingCity}}>
             </div>
 
             <h6 class="titleC6">Select languages you speak or you want to improve</h6>
@@ -54,10 +56,12 @@
                   </select>
             </div>
 
-            <h6 class="titleC6">Change profile pic</h6>
+
             <div class="containerCS">
-              <img src="{{ user.imageProfile }}" width="60px" height="60px" alt="imageProfile">
+                  <img src="{{ user.imageProfile }}" width="60px" height="60px" alt="imageProfile">
             </div>
+
+            <h6 class="titleC6"><i class="fa-solid fa-upload" id="upload-icon-signup"></i>Change profile pic</h6>
 
             <div class="containerCS">
                   <input class="addImg" type="file" name="imageProfile" value="" />
@@ -65,10 +69,10 @@
             </div>
 
             <div class="containerCSB">
-                  <button class="signButton" type="submit">Modify profile account</button>
+                  <button class="signButton" type="submit">Modify profile</button>
             </div>
       </form>
-            {{#if error}}
-            <p style="color: red;" class="errorLC">{{error}}</p>
-            {{/if}}
+      {{#if error}}
+      <p style="color: red;" class="errorLC">{{error}}</p>
+      {{/if}}
 </div>
