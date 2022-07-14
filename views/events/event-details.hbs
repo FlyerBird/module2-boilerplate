@@ -66,6 +66,14 @@
 
     </div>
     {{/unless}}
+    {{#if isEnrolled}}
+        <div class="joinEventButton">
+      <form method="POST" action="/events/{{event._id}}/unroll">
+        <button type="submit">Do not assist</button>
+      </form>
+
+    </div>
+    {{/if}}
   </div>
 
 

@@ -195,6 +195,20 @@ router.post('/:eventId/enroll', isLoggedIn, async (req, res, next) => {
   }
 });
 
+// @desc    Removes user from an event
+// @route   POST /events/:eventId/unroll
+// @access  Private
+router.post('/:eventId/unroll', isLoggedIn, async (req, res, next) => {
+  const {eventId} = req.params;
+  try {
+    const user = req.session.currentUser._id;
+    await Event.findByIdAndUpdate(eventId, {$pull: {participants: user}});
+    res.redirect(`/events/${eventId}`);    
+  } catch (error) {
+    next(error)
+  }
+});
+
 // @desc    Displays details of event
 // @route   GET /events/:id
 // @access  Private
