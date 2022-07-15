@@ -495,10 +495,9 @@ body {
 
 
 .eventsDetail{
-  padding: 10px 20px;
-  position: relative;
-  top: 40px;
-  height: 800px;
+  padding: 40px 20px;
+ 
+  
   
 
 }
@@ -527,6 +526,7 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
+  padding: 10px;
 }
 
 .joinEventButton button {
@@ -542,6 +542,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 40px;
+  padding: 10px;
   
 }
 
@@ -600,6 +601,10 @@ body {
   
 }
 
+.organiser {
+  padding: 10px;
+} 
+
 .dateDetail h2, .languageDetail p, .maxDetail p, .description p, .participants p{
   margin-top: 8px; margin-bottom: 8px;
 }
@@ -641,27 +646,23 @@ div.scrollmenu a:hover {
 .userDetail{
   padding: 40px 20px;
   position: relative;
-  top: 40px; 
+  top: 20px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  
   gap: 20px;
-  padding: 5px;
+  padding: 0px 20px;
   box-shadow:  10px 10px 50px #afab7b,
                -10px -10px 50px #ffffe9;
 
   justify-content: center;
-  
-  
   border: 3px solid #555;
   border-radius: 10px;
   background-color: white;
 
   margin-top: 20px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .userDetail img{
@@ -669,6 +670,10 @@ div.scrollmenu a:hover {
   height: 140px;
   border-radius: 50%;
   margin-top: 20px;
+}
+
+.userDetail h2{
+  text-align: center;
 }
 
 .userDetail2{
@@ -679,7 +684,7 @@ flex-direction: column;
 .userDetail2 ul{
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+ 
   }
 
 .userDetail2 ul li{
