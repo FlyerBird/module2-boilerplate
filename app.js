@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo');
 const indexRouter = require('./config/index');
 const authRouter = require('./routes/auth');
 const eventRouter = require('./routes/events');
+const messageRouter = require('./routes/messages');
 
 const app = express();
 
@@ -50,6 +51,7 @@ app.set('view engine', 'hbs');
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/events', eventRouter);
+app.use('/messages', messageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

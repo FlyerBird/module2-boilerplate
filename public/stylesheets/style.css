@@ -641,12 +641,10 @@ div.scrollmenu a:hover {
 .userDetail{
   padding: 40px 20px;
   position: relative;
-  top: 40px; 
+  top: 20px; 
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  
   gap: 20px;
   padding: 5px;
   box-shadow:  10px 10px 50px #afab7b,
@@ -662,6 +660,9 @@ div.scrollmenu a:hover {
   margin-top: 20px;
   margin-left: 50px;
   margin-right: 50px;
+  margin-bottom: 20px;
+
+  
 }
 
 .userDetail img{
@@ -743,4 +744,29 @@ margin-top: 80px;
 #map {
   width: 100%;
   height: 602px;
+}
+
+/* MESSAGES*/
+
+.messageForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 40px;
+}
+
+.messageForm button{
+  background-color: #3D3733;
+  color: #F2F2F2;
+  padding: 10px 102px;
+  border-radius: 20px;
+  border: none;
+}
+
+.messageBox {
+  width: 300px;
+  height: 150px;
+  border-radius: 10px;
+  padding: 10px;
 }
