@@ -12,6 +12,8 @@ Once you have a profile on "iTalk", you will be able to add a post offering what
  
 ​1. IT’S FREE FOR INDIVIDUALS
 2. COLLABORATIVE
+3. USEFUL TO IMPROVE YOUR LANGUAGE SKILLS
+4- FUN
 ---
 ​
 ## Instructions
@@ -42,71 +44,72 @@ What can the user do with the app?
 - User can log out
 - User can post events
 - User can join events
-- User can send reviews
-- User can receive reviews
+- User can filter events by language
+- User can disjoin events
+- User can edit or delete his events
+- User can edit or delete his account
  
 ​
-## User stories (Backlog)
-​
-- User can upload a profile picture
-- User can ...
-​
----
 ​
 ## Models
 ​
-User:
+USER:
 ​
-```js
 const userSchema = new Schema(
- {
-   username: {
-     type: String,
-     trim: true,
-     required: [true, 'Username is required.'],
-     unique: true
-   },
-   email: {
-     type: String,
-     required: [true, 'Email is required.'],
-     unique: true,
-     lowercase: true,
-     trim: true
-   },
-   hashedPassword: {
-     type: String,
-     required: [true, 'Password is required.']
-   },
-   dateOfBirth: {
-     type: String,
-     required: [true, dateOfBirth is required.']
-   },
-	languageSkills: {
-	  type: [String],
-	  required: [true, ‘this fiels is required.’]
- 	 },
- {
-   timestamps: true
- }
+  // Add whichever fields you need for your app
+  {
+    username: {
+      type: String,
+      trim: true,
+      required: [true, 'Username is required.'],
+      unique: true
+    },
+    fullname: {
+      type: String,
+      required: [true, 'Your full name is required.'],
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required.'],
+      unique: true,
+      lowercase: true,
+      trim: true
+    },
+    hashedPassword: {
+      type: String,
+      required: [true, 'Password is required.']
+    },
+    livingCity: {
+      type: String,
+      required: [true, 'Living city is required']
+    },
+    dateOfBirth: {
+      type: Date,
+      required: [true, 'Date of birth is required.']
+    },
+    languageSkills: {
+      type: [String],
+      required: [true, 'This field is required.']
+    },
+    imageProfile: String
+  },
+  {
+    timestamps: true
+  }
 );
+
+EVENT:
 
 const eventSchema = new Schema(
   {
     location: {
         type: String,
         required: [true, 'Event location is required.'],
-        default: Date.now
     },
-    date: {
-        type: Date,
+    datetime: {
+        type: String,
         required: [true, 'Date is required'],
     }, 
-    time: {
-        type: Number,
-        required: [true, 'Time is required'],
-        min: 8,
-        max: 22,
-    },
     maxAssistants: {
         type: Number,
         min: 2,
@@ -117,14 +120,24 @@ const eventSchema = new Schema(
         type: String,
         required: [true, 'Description is required.']
     },
-    languageSkills: {
-        type: [String],
+    language: {
+        type: String, 
         required: [true, 'This field is required.']
     },
     participants: {
         type: [Schema.Types.ObjectId],
         ref: 'User',
     },
+    organiser: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    availableSpots: {
+        type: String,
+    },
+    link: {
+        type: String,
+    }
   },
   {
     timestamps: true

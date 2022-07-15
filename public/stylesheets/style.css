@@ -601,6 +601,12 @@ body {
   
 }
 
+.languageDetail img{
+  width: 25px;
+  height: auto;
+}
+
+
 .organiser {
   padding: 10px;
 } 
