@@ -1,19 +1,17 @@
 # iTalk
-​
 ## Description
 ​
 This is a project developed by Cristian Alarcon and Carlos Nieto as the project for the second module at Ironhack. 
  
-The application brings the opportunity to join and publish different events in different locations.
+It is a Mobile First application which brings the opportunity to join and publish different events in different locations.
  
 The only thing you have to do is create a user profile which would include the skills that you already have and would like to share with the community (at this point of the project we are going to focus on language skills).
  
 Once you have a profile on "iTalk", you will be able to add a post offering what languages you have knowledge of, where (presentially or online?¿) you would like to create an event, when the meeting is and how many people you would like to put together. At the same time, you will have access to all the posts the rest of the people made and join them if there are available spots.
+
+It is free for individuals, collaborative, useful to improve your language skills and it is fun!
  
-​1. IT’S FREE FOR INDIVIDUALS
-2. COLLABORATIVE
-3. USEFUL TO IMPROVE YOUR LANGUAGE SKILLS
-4- FUN
+
 ---
 ​
 ## Instructions
@@ -33,30 +31,30 @@ To start the project run:
 ```bash
 npm run start
 ```
-​
+
 ---
 ​
 ## User stories (MVP)
 ​
 What can the user do with the app?
-- User can sign up and create and account
-- User can login
-- User can log out
-- User can post events
-- User can join events
-- User can filter events by language
-- User can disjoin events
-- User can edit or delete his events
-- User can edit or delete his account
- 
+- User can SIGN UP and CREATE and account
+- User can LOGIN
+- User can LOGOUT
+- User can POST events
+- User can JOIN events
+- User can FILTER events by language
+- User can DISJOIN events
+- User can EDIT or DELETE his events
+- User can EDIT or DELETE his account
+---
 ​
 ​
 ## Models
 ​
-USER:
+### USER:
 ​
-const userSchema = new Schema(
-  // Add whichever fields you need for your app
+Users in the database have the following properties:
+```js
   {
     username: {
       type: String,
@@ -97,8 +95,12 @@ const userSchema = new Schema(
     timestamps: true
   }
 );
+```
 
-EVENT:
+### EVENT:
+​
+Events in the database have the following properties:
+```js
 
 const eventSchema = new Schema(
   {
@@ -167,5 +169,4 @@ Review:
 ## Useful links
 ​
 - [Github Repo](https://github.com/alebausa/module2-boilerplate)
-- [Deployed version]()
-- [Presentation slides](https://www.slides.com)
+- [Deployed version](https://italkapp.herokuapp.com/)

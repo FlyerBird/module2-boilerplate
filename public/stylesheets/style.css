@@ -71,12 +71,16 @@ body {
   position: relative;
   top: 40%;
   gap: 150px;
+  
+
 }
 
 #iTalk h1 {
   font-size: 70px;
   color: #F2F2F2;
   font-weight: 900;
+  text-shadow: 5px 5 5px 0 black;
+  
 }
 
 
